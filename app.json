@@ -1,20 +1,15 @@
 {
-  "name": "Contentful Gatsby Starter",
+  "name": "Informacion Es Poder",
   "description": "Gatsby starter for a Contentful project.",
-  "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
-  ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "keywords": ["contentful", "gatsby", "static", "ssg"],
+  "repository": "git@github.com:obsidian-software-service/InformacionEsPoder.git",
   "success_url": "/",
   "buildpacks": [
     {
-      "url": "heroku/nodejs"
+      "url": ""
     },
     {
-      "url": "https://github.com/heroku/heroku-buildpack-static"
+      "url": ""
     }
   ]
 }
