@@ -75,3 +75,4 @@ Thumbs.db
 
 # VsCode
 .vscdode
+.vscode/settings.json

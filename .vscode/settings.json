@@ -1,3 +1,21 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#977bd5",
+    "activityBar.activeBorder": "#e8c6b6",
+    "activityBar.background": "#977bd5",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#e8c6b6",
+    "activityBarBadge.foreground": "#15202b",
+    "statusBar.background": "#7954c9",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#977bd5",
+    "titleBar.activeBackground": "#7954c9",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#7954c999",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#7954C9",
   {
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -21,4 +39,5 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.fontLigatures": false,
+}
 }
