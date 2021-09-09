@@ -1,11 +1,11 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "informacion-es-poder",
+  "description": "Contentful Gatsby Starter Website",
   "private": true,
-  "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
+  "version": "0.1.0",
+  "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
   },
   "dependencies": {
     "gatsby": "^3.10.1",
@@ -28,17 +28,21 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "",
   "keywords": [
     "gatsby",
     "contentful",
-    "starter"
+    "starter",
+    "podcast",
+    "radio",
+    "obsidian",
+    "octosoft"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
   },
   "scripts": {
     "dev": "gatsby develop",
