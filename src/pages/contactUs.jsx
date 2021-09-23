@@ -1,11 +1,9 @@
 import React from 'react'
 
+import Layout from '../components/layout'
+
 const contactUs = () => {
-  return (
-    <div>
-      CONTACT US
-    </div>
-  )
+  return <Layout>CONTACT US</Layout>
 }
 
 export default contactUs

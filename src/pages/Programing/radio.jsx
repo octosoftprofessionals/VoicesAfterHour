@@ -1,11 +1,9 @@
 import React from 'react'
 
+import Layout from '../../components/layout'
+
 const radio = () => {
-  return (
-    <div>
-      RADIO
-    </div>
-  )
+  return <Layout>RADIO</Layout>
 }
 
 export default radio
