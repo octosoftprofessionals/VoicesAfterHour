@@ -3,11 +3,12 @@ import React from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { CssBaseline } from '@material-ui/core'
 
-import './Styles/variables.css'
-import './Styles/global.css'
+import '../Styles/variables.css'
+import '../Styles/global.css'
 
 import Footer from './Footer'
-import Theme from './Styles'
+import NavBar from './NavBar'
+import Theme from '../Styles'
 
 class Layout extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={Theme}>
         <CssBaseline />
+        <NavBar />
         <main>
           {children}
           <footer>

@@ -8,7 +8,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
-import BehanceIcon from '../../assets/behance.svg'
+import BehanceIcon from '../../../assets/behance.svg'
 
 const useStyles = makeStyles((theme) => ({
   section: {
