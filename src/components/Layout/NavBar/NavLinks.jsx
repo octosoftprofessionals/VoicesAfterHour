@@ -13,24 +13,19 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     padding: 15,
-    color: theme.palette.text.primary,
     textDecoration: 'none',
-    cursor: 'pointer',
   },
   linkButton: {
-    padding: 6,
-    color: theme.palette.text.primary,
     textDecoration: 'none',
-    cursor: 'pointer',
   },
   linkText: {
     fontWeight: 'bold',
-    fontSize: '14px',
-    color: 'black',
-    fontFamily: 'Montserrat',
+    fontSize: 14,
+    color: theme.palette.secondary.contrastText,
     textShadow: ({ transparent }) => (!!transparent ? '0 0 4px #FFF' : 'none'),
   },
   button: {
+    margin: 6,
     backgroundColor: '#33adff',
   },
 }))
@@ -113,16 +108,13 @@ const NavLinks = (props) => {
 
       <Hidden mdDown>|</Hidden>
 
-      <Link
-        className={classes.linkButton}
-        to="https://calendly.com/octosoftprofessionals/no-strings-consultation?month=2021-03"
-      >
-        <Button className={classes.button}>
+      <Button className={classes.button}>
+        <Link className={classes.linkButton} to="/">
           <Typography variant="body1" className={classes.linkText}>
-            {'BOOK A ZOOM CALL'}
+            DONATION
           </Typography>
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </>
   )
 }
