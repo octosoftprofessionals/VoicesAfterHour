@@ -33,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   link: {
-    padding: 15,
-    color: theme.palette.text.primary,
     textDecoration: 'none',
     cursor: 'pointer',
   },
@@ -43,14 +41,13 @@ const useStyles = makeStyles((theme) => ({
     height: 46,
     marginRight: 10,
     opacity: ({ transparent }) => (!!transparent ? '0' : '1'),
-    fill: '#33adff',
   },
-  appbar: {
+  appBar: {
     background: 'none',
     boxShadow: ({ transparent }) => (!!transparent ? 'none' : '0 0 4px gray'),
   },
   iconDrawer: {
-    color: 'black',
+    color: theme.palette.secondary.contrastText,
     textShadow: ({ transparent }) => (!!transparent ? '0 0 6px black' : 'none'),
   },
   button: {
@@ -80,12 +77,10 @@ const NavBar = (props) => {
   return (
     <>
       <HideOnScroll {...props}>
-        <AppBar position="static" className={classes.appbar}>
+        <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <Link to={'/'} className={classes.link}>
-              <div className={classes.links}>
                 <div className={classes.logo}>{'logo'}</div>
-              </div>
             </Link>
             <Hidden lgUp>
               <IconButton
