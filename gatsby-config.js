@@ -59,5 +59,15 @@ module.exports = {
         timeout: 3500,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Roboto',
+          `Bebas Neue`
+        ],
+        display: 'swap'
+      }
+    },
   ],
 }
