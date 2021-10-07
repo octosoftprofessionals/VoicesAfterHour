@@ -1,11 +1,13 @@
-import { createTheme } from '@material-ui/core/styles'
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { colors } from './Color'
 
-const Theme = createTheme({
+let Theme = createTheme({
   spacing: 4,
   typography: {
-    fontSize: '1rem',
+    htmlFontSize: 16,
     fontFamily: [
       'Roboto',
+      'Bebas Neue',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
@@ -15,22 +17,25 @@ const Theme = createTheme({
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(','),
+    ],
   },
   palette: {
     primary: {
       light: '#757ce8',
       main: '#3f50b5',
       dark: '#002884',
-      contrastText: '#fff',
+      contrastText: colors.White,
     },
     secondary: {
       light: '#ff7961',
       main: '#f44336',
       dark: '#ba000d',
-      contrastText: '#000',
+      contrastText: colors.Black,
+    },
+    background: {
+      default: colors.Tolopea,
     },
   },
 })
-
+Theme = responsiveFontSizes(Theme)
 export default Theme
