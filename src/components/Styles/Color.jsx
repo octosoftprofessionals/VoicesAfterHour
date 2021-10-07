@@ -7,4 +7,5 @@ export const colors = {
   MidnightBlue: '#123A69',
   White: '#FFFFFF',
   LightCyan: '#E1FFFF',
+  Black: '#000000',
 }
