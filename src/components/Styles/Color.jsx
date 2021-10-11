@@ -8,4 +8,5 @@ export const colors = {
   White: '#FFFFFF',
   LightCyan: '#E1FFFF',
   Black: '#000000',
+  SummerSky: '#37ADD4',
 }

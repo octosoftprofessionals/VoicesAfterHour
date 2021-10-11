@@ -2,25 +2,23 @@ import React from 'react'
 import { FormControl, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles((Theme) => ({
+const useStyles = makeStyles((theme) => ({
   input: {
-    fontFamily: 'Montserrat',
     '& div': {
-      borderRadius: 0,
+      borderRadius: 4,
     },
     '& div::before': {
-      borderRadius: 0,
+      borderRadius: 4,
       borderBottom: 'none',
     },
     '& input': {
-      fontFamily: 'Montserrat',
-      paddingTop: 24,
-      paddingLeft: 12,
-      paddingBottom: 6,
+      paddingTop: theme.spacing(6),
+      paddingLeft: theme.spacing(3),
+      paddingBottom: theme.spacing(2),
     },
     '& label': {
-      fontFamily: 'Montserrat',
       transform: 'translate(12px, 18px) scale(1)',
+      color: theme.palette.primary.contrastText,
     },
     '& label span': {
       display: 'none',
@@ -38,6 +36,7 @@ const PrimaryInput = ({ className, ...otherProps }) => {
       <TextField
         className={`${classes.input} ${className}`}
         variant="filled"
+        s
         {...otherProps}
       />
     </FormControl>
