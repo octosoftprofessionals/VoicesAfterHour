@@ -1,8 +1,8 @@
 {
-  "name": "informacion-es-poder",
+  "name": "voices-after-hours",
   "description": "Contentful Gatsby Starter Website",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.5",
   "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
     "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
