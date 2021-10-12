@@ -36,8 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful Starter',
-    description: 'Official Contentful Gatsby Starter',
+    title: 'VSH-Website',
+    description: '',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -47,7 +47,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
     'gatsby-plugin-react-svg',
-    'gatsby-plugin-root-import',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
