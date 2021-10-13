@@ -10,7 +10,7 @@ import {
   Twitter,
   YouTube,
 } from '@material-ui/icons'
-import BehanceIcon from '../../../../assets/behance.svg'
+import BehanceIcon from '@Assets/behance.svg'
 
 import ItemSocial from './ItemSocial'
 
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     '@media (max-width: 576px)': { textAlign: 'center' },
   },
+  boxIcons: { rowGap: theme.spacing(2), columnGap: theme.spacing(2) },
   iconBehance: {
     width: theme.spacing(8),
     height: theme.spacing(8),
@@ -46,7 +47,15 @@ const SocialIcons = () => {
   const classes = useStyles()
 
   return (
-    <Grid item xs={9} sm={3} container justify="space-around">
+    <Grid
+      item
+      xs={9}
+      sm={3}
+      container
+      justify="space-around"
+      wrap="wrap"
+      className={classes.boxIcons}
+    >
       <ItemSocial link={'https://www.facebook.com/octosoftprofessionals'}>
         <Facebook className={classes.icon} />
       </ItemSocial>

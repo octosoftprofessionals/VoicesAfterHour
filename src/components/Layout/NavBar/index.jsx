@@ -13,7 +13,7 @@ import { Menu } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core/styles'
 import NavLinks from './NavLinks'
 import HideOnScroll from './HideOnScroll'
-import { colors, shadows } from '../../Styles/Color'
+import { colors } from '@Styles/Color'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     '@global': {
       '.MuiDrawer-paperAnchorRight': {
-        width: '20%',
+        width: '20vmax',
         backgroundColor: theme.palette.background.default,
       },
     },
@@ -48,9 +48,9 @@ const NavBar = ({ ...props }) => {
   const [showDrawer, setShowDrawer] = useState(false)
   return (
     <>
-      <AppBar position="sticky" color="transparent" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar}>
         <HideOnScroll {...props}>
-          <Toolbar>
+          <Toolbar className={classes.toolbar}>
             <Grid item xs={4}>
               <Link to={'/'} className={classes.link}>
                 <div className={classes.logo}>{'logo'}</div>
@@ -58,7 +58,7 @@ const NavBar = ({ ...props }) => {
             </Grid>
             <Grid item xs={4}>
               <Hidden mdDown>
-                <NavLinks direction="row" justify="space-around" />
+                <NavLinks className={classes.links} />
               </Hidden>
             </Grid>
             <Grid item xs={4} container justify="flex-end">

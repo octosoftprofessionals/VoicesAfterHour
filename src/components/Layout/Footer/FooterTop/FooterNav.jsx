@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Facebook, Instagram, Twitter } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   icon: { fontSize: '2rem', fill: theme.palette.common.white },
   link: {
     textDecoration: 'none',
@@ -17,13 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
   box: { columnGap: theme.spacing(4) },
   containerLink: { rowGap: theme.spacing(4) },
-  linkText: {},
 }))
 
 const FooterNav = () => {
   const classes = useStyles()
   return (
-    <Grid item xs={12} sm={4} container justify="center" alignContent="center">
+    <Grid item xs={12} sm={5} container justify="center" alignContent="center">
       <Grid
         item
         xs={6}
@@ -31,32 +29,21 @@ const FooterNav = () => {
         justify="center"
         direction="column"
         alignContent="center"
+        wrap="wrap"
         className={classes.containerLink}
       >
         <Link to={'/aboutUs'} className={classes.link}>
-          <Typography
-            variant="body1"
-            color="primary"
-            className={classes.linkText}
-          >
+          <Typography variant="body1" color="primary">
             About Us
           </Typography>
         </Link>
         <Link to={'/'} className={classes.link}>
-          <Typography
-            variant="body1"
-            color="primary"
-            className={classes.linkText}
-          >
+          <Typography variant="body1" color="primary">
             Contact
           </Typography>
         </Link>
         <Link to={'/'} className={classes.link}>
-          <Typography
-            variant="body1"
-            color="primary"
-            className={classes.linkText}
-          >
+          <Typography variant="body1" color="primary">
             Terms & Conditions
           </Typography>
         </Link>
@@ -79,11 +66,7 @@ const FooterNav = () => {
             className={classes.box}
           >
             <Facebook className={classes.icon} />
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.linkText}
-            >
+            <Typography variant="body1" color="primary">
               Facebook
             </Typography>
           </Grid>
@@ -97,11 +80,7 @@ const FooterNav = () => {
             className={classes.box}
           >
             <Instagram className={classes.icon} />
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.linkText}
-            >
+            <Typography variant="body1" color="primary">
               Instagram
             </Typography>
           </Grid>
@@ -115,11 +94,7 @@ const FooterNav = () => {
             className={classes.box}
           >
             <Twitter className={classes.icon} />
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.linkText}
-            >
+            <Typography variant="body1" color="primary">
               Twitter
             </Typography>
           </Grid>
