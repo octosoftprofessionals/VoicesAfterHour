@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { colors } from '@Styles/Color'
+import LogoVAH from '@Assets/Footer-VAH-icon.svg'
 
 import FormSubscribe from './FormSubscribe'
 import FooterNav from './FooterNav'
@@ -22,13 +23,13 @@ const FooterTop = ({ handleSubmit, email, setEmail }) => {
   return (
     <Grid
       container
-      justify="space-evenly"
+      justify="space-around"
       alignItems="center"
       wrap="wrap"
       className={classes.toolbar}
     >
-      <Grid item xs={12} sm={2}>
-        Icon
+      <Grid item xs={12} sm={2} container justify="center">
+        <LogoVAH />
       </Grid>
       <FooterNav />
       <FormSubscribe

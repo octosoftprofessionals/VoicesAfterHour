@@ -3,8 +3,9 @@ import { Link } from 'gatsby'
 
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Instagram, Twitter } from '@material-ui/icons'
 
-import { Facebook, Instagram, Twitter } from '@material-ui/icons'
+import Facebook from '@Assets/facebook.svg'
 
 const useStyles = makeStyles((theme) => ({
   icon: { fontSize: '2rem', fill: theme.palette.common.white },
@@ -15,13 +16,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   box: { columnGap: theme.spacing(4) },
+  boxIconFacebook: { width: 32, height: 32 },
   containerLink: { rowGap: theme.spacing(4) },
 }))
 
 const FooterNav = () => {
   const classes = useStyles()
   return (
-    <Grid item xs={12} sm={5} container justify="center" alignContent="center">
+    <Grid
+      item
+      xs={12}
+      sm={5}
+      md={3}
+      container
+      justify="center"
+      alignContent="center"
+    >
       <Grid
         item
         xs={6}
@@ -61,27 +71,21 @@ const FooterNav = () => {
           <Grid
             item
             container
+            justify="center"
             alignItems="center"
             wrap="wrap"
             className={classes.box}
           >
-            <Facebook className={classes.icon} />
+            <Grid
+              container
+              justify="center"
+              alignItems="center"
+              className={classes.boxIconFacebook}
+            >
+              <Facebook className={classes.icon} />
+            </Grid>
             <Typography variant="body1" color="primary">
               Facebook
-            </Typography>
-          </Grid>
-        </Link>
-        <Link to={'/'} className={classes.link}>
-          <Grid
-            item
-            container
-            alignItems="center"
-            wrap="wrap"
-            className={classes.box}
-          >
-            <Instagram className={classes.icon} />
-            <Typography variant="body1" color="primary">
-              Instagram
             </Typography>
           </Grid>
         </Link>
@@ -96,6 +100,20 @@ const FooterNav = () => {
             <Twitter className={classes.icon} />
             <Typography variant="body1" color="primary">
               Twitter
+            </Typography>
+          </Grid>
+        </Link>
+        <Link to={'/'} className={classes.link}>
+          <Grid
+            item
+            container
+            alignItems="center"
+            wrap="wrap"
+            className={classes.box}
+          >
+            <Instagram className={classes.icon} />
+            <Typography variant="body1" color="primary">
+              Instagram
             </Typography>
           </Grid>
         </Link>
