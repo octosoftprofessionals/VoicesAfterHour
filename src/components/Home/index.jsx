@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-
-import { Scroll, Banner } from '@Components'
+import { Scroll, Banner, CardImage } from '@Components'
 import { finedImgUrl } from '@Utils'
-
 import LandingBanner from './LandingBanner'
+
 import Podcast from './Podcast'
+
 const Home = ({ data }) => {
   const {
     allContentfulAsset: { edges },
@@ -28,6 +28,7 @@ const Home = ({ data }) => {
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(edges, 'ilus 3')}
         />
+
         <Podcast
           title={'Podcast'}
           description={
@@ -35,6 +36,9 @@ const Home = ({ data }) => {
           }
           link={'/'}
         />
+
+        <CardImage imageUrl={finedImgUrl(edges, 'ilus 2')} />
+
       </Scroll>
     </Grid>
   )
