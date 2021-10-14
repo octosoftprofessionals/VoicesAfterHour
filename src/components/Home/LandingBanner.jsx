@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     marginTop: theme.spacing(6),
+    columnGap: theme.spacing(6),
   },
   boxTitles: { position: 'relative', minHeight: '50vh' },
   imageLeft: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    minHeight: '30vh',
   },
   icon: { fontSize: theme.typography.h3.fontSize },
   firstTitle: {
@@ -72,7 +74,9 @@ const LandingBanner = ({ description, imageUrl }) => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid item xs={12} className={classes.imageRight} />
+      <Grid item xs={12} md={5} container justify="center">
+        <Grid item xs={10} className={classes.imageRight} />
+      </Grid>
     </Grid>
   )
 }

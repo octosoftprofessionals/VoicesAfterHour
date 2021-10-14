@@ -9,6 +9,7 @@ const HomePage = (props) => {
       allContentfulAsset {
         edges {
           node {
+            title
             file {
               url
             }
