@@ -1,13 +1,68 @@
 import React from 'react'
+import { Link } from 'gatsby'
+
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { colors, shadows, weight } from '@Styles'
 
+const Banner = ({
+  title,
+  description,
+  textBtn,
+  backgroundBtn,
+  imageUrl,
+  right,
+  link,
+}) => {
+  const classes = useStyles({ imageUrl, right, backgroundBtn })
+  return (
+    <Grid
+      item
+      container
+      justify="space-around"
+      alignContent="center"
+      wrap="wrap"
+      className={classes.root}
+    >
+      <Grid
+        item
+        xs={11}
+        md={4}
+        container
+        direction="column"
+        alignItems="flex-start"
+        className={classes.box}
+      >
+        <Typography className={classes.title} variant="h2">
+          {title}
+        </Typography>
+
+        <Typography className={classes.description} variant="subtitle1">
+          {description}
+        </Typography>
+
+        <Link to={link} className={classes.link}>
+          <Button className={classes.button} variant="contained">
+            <Typography
+              variant="button"
+              color="textPrimary"
+              className={classes.txtBtn}
+            >
+              {textBtn}
+            </Typography>
+          </Button>
+        </Link>
+      </Grid>
+
+      <Grid item xs={12} md={5} className={classes.image} />
+    </Grid>
+  )
+}
 const useStyles = makeStyles((theme) => ({
   root: {
     flexDirection: ({ right }) => (right ? 'row-reverse' : 'row'),
-    padding: theme.spacing(2),
+    paddingBottom: theme.spacing(30),
   },
   box: { rowGap: theme.spacing(2.25) },
   image: {
@@ -39,57 +94,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: weight.l,
     color: colors.Tolopea,
   },
+  link: {
+    textDecoration: 'none',
+  },
 }))
-
-const Banner = ({
-  title,
-  description,
-  textBtn,
-  backgroundBtn,
-  imageUrl,
-  right,
-}) => {
-  const classes = useStyles({ imageUrl, right, backgroundBtn })
-  return (
-    <Grid
-      item
-      container
-      justify="space-around"
-      alignContent="center"
-      wrap="wrap"
-      className={classes.root}
-    >
-      <Grid
-        item
-        xs={11}
-        md={4}
-        container
-        direction="column"
-        alignItems="flex-start"
-        className={classes.box}
-      >
-        <Typography className={classes.title} variant="h2">
-          {title}
-        </Typography>
-
-        <Typography className={classes.description} variant="subtitle1">
-          {description}
-        </Typography>
-
-        <Button className={classes.button} variant="contained">
-          <Typography
-            variant="button"
-            color="textPrimary"
-            className={classes.txtBtn}
-          >
-            {textBtn}
-          </Typography>
-        </Button>
-      </Grid>
-
-      <Grid item xs={12} md={5} className={classes.image} />
-    </Grid>
-  )
-}
 
 export default Banner

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import { Scroll, Banner, CardImage } from '@Components'
+
 import { finedImgUrl } from '@Utils'
+
 import LandingBanner from './LandingBanner'
 import Sponsors from './Sponsors'
-
 import Podcast from './Podcast'
 
 const Home = ({ data }) => {
@@ -28,6 +29,7 @@ const Home = ({ data }) => {
           }
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(assets, 'ilus 3')}
+          link={'/aboutUs'}
         />
 
         <Podcast

@@ -16,7 +16,7 @@ const CardImage = ({ imageUrl }) => {
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    width: '73%',
+    width: '100%',
     backgroundSize: 'contain',
     minHeight: '63vh',
   },
