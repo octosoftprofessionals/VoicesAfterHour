@@ -7,7 +7,7 @@ const CardImage = ({ imageUrl }) => {
 
   return (
     <Grid container justifyContent="center" className={classes.root}>
-      <Grid item xs={10}>
+      <Grid item xs={10} container justifyContent="center">
         <CardMedia className={classes.media} image={imageUrl} />
       </Grid>
     </Grid>
@@ -16,10 +16,9 @@ const CardImage = ({ imageUrl }) => {
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    width: '100%',
-    height: 'auto',
+    width: '73%',
     backgroundSize: 'contain',
-    minHeight: '50vh',
+    minHeight: '63vh',
   },
 }))
 
