@@ -30,7 +30,7 @@ const SponsorsItem = ({ sponsorName, imageUrl }) => {
     >
       <Grid item className={classes.image} xs={4} />
 
-      <Grid item xs={7} >
+      <Grid item xs={7}>
         <Typography variant="h2">{sponsorName}</Typography>
       </Grid>
     </Grid>
