@@ -7,7 +7,7 @@ import { colors, weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   scroll: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(0, 2),
     rowGap: theme.spacing(11),
   },
   title: {

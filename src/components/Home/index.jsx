@@ -27,7 +27,7 @@ const Home = ({ data }) => {
           imageUrl={finedImgUrl(edges, 'ilus 3')}
         />
 
-        <CardImage />
+        <CardImage imageUrl={finedImgUrl(edges, 'ilus 2')} />
       </Scroll>
     </Grid>
   )
