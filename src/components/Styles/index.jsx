@@ -1,7 +1,24 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
-import { colors } from './Color'
+import { colors, shadows } from './Color'
 
 let Theme = createTheme({
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*::-webkit-scrollbar': {
+          width: '.5rem',
+        },
+        '*::-webkit-scrollbar-track': {
+          boxShadow: `inset ${shadows.boxShadow1}, inset ${shadows.boxShadow2}`,
+        },
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: colors.HotPinkLight,
+          outline: `1px solid ${colors.Razzmatazz}`,
+          borderRadius: 25,
+        },
+      },
+    },
+  },
   spacing: 4,
   typography: {
     htmlFontSize: 16,
