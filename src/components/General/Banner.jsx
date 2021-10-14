@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, shadows,weight } from '@Styles'
+import { colors, shadows, weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,11 +12,10 @@ const useStyles = makeStyles((theme) => ({
   box: { rowGap: theme.spacing(2.25) },
   image: {
     backgroundImage: ({ imageUrl }) => `url(${imageUrl})`,
-    backgroundColor: theme.palette.common.white,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    paddingBottom: '15%',
+    minHeight: '30vh',
   },
   button: {
     backgroundColor: ({ backgroundBtn }) => backgroundBtn ?? colors.AliceBlue,
@@ -54,7 +53,6 @@ const Banner = ({
   return (
     <Grid
       item
-      xs={12}
       container
       justify="space-around"
       alignContent="center"
@@ -63,8 +61,8 @@ const Banner = ({
     >
       <Grid
         item
-        xs={12}
-        sm={4}
+        xs={11}
+        md={4}
         container
         direction="column"
         alignItems="flex-start"
@@ -89,7 +87,7 @@ const Banner = ({
         </Button>
       </Grid>
 
-      <Grid item className={classes.image} xs={12} sm={5} />
+      <Grid item xs={12} md={5} className={classes.image} />
     </Grid>
   )
 }
