@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -8,15 +8,6 @@ import LogoVAH from '@Assets/Footer-VAH-icon.svg'
 
 import FormSubscribe from './FormSubscribe'
 import FooterNav from './FooterNav'
-
-const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    padding: theme.spacing(2, 4),
-    background: colors.MidnightBlue,
-    minHeight: `${theme.spacing(7)}vh`,
-    rowGap: theme.spacing(6),
-  },
-}))
 
 const FooterTop = ({ handleSubmit, email, setEmail }) => {
   const classes = useStyles()
@@ -29,7 +20,9 @@ const FooterTop = ({ handleSubmit, email, setEmail }) => {
       className={classes.toolbar}
     >
       <Grid item xs={12} sm={2} container justify="center">
-        <LogoVAH />
+        <Link to={'/'} className={classes.link}>
+          <LogoVAH />
+        </Link>
       </Grid>
       <FooterNav />
       <FormSubscribe
@@ -40,5 +33,15 @@ const FooterTop = ({ handleSubmit, email, setEmail }) => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: {
+    padding: theme.spacing(2, 4),
+    background: colors.MidnightBlue,
+    minHeight: `${theme.spacing(7)}vh`,
+    rowGap: theme.spacing(6),
+  },
+  link: { textDecoration: 'none' },
+}))
 
 export default FooterTop
