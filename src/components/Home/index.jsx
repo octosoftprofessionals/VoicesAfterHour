@@ -1,8 +1,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 
-import Scroll from '@Components/Scroll'
-import Banner from '@Components/Banner'
+import { Scroll, Banner } from '@Components'
 
 import LandingBanner from './LandingBanner'
 const Home = ({ data }) => {

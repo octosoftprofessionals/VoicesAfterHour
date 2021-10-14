@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     backgroundColor: ({ backgroundBtn }) => backgroundBtn ?? colors.AliceBlue,
-    boxShadow: shadows.boxShadow3,
+    boxShadow: shadows.boxShadow2,
     borderRadius: theme.spacing(2),
   },
   title: {
