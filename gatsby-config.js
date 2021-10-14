@@ -41,6 +41,14 @@ module.exports = {
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
