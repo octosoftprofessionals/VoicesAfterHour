@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Send } from '@material-ui/icons'
 
 import {PrimaryInput} from '@Components'
-import { colors } from '@Styles/Color'
+import { colors } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {

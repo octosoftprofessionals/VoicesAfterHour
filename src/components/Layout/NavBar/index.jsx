@@ -13,7 +13,7 @@ import {
 import { Menu } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors } from '@Styles/Color'
+import { colors } from '@Styles'
 import LogoVAH from '@Assets/VAH-icon.svg'
 
 import NavLinks from './NavLinks'

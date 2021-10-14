@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, shadows } from '@Styles/Color'
+import { colors, shadows,weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
-    fontWeight: 400,
     textDecoration: 'underline',
     color: colors.ColumbiaBlue,
     letterSpacing: '0.02rem',
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   txtBtn: {
     padding: theme.spacing(2.5),
     letterSpacing: '0.05rem',
-    fontWeight: 600,
+    fontWeight: weight.l,
     color: colors.Tolopea,
   },
 }))
