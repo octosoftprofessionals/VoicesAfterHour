@@ -1,17 +1,28 @@
 import React from 'react'
-// import { graphql } from 'gatsby'
 
 import Layout from '@Layout'
 import Home from '@Components/Home'
+import { useStaticQuery, graphql } from 'gatsby'
+const HomePage = (props) => {
+  const data = useStaticQuery(graphql`
+    query Home {
+      allContentfulAsset {
+        edges {
+          node {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  `)
 
-class RootIndex extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <Home />
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <Home data={data} />
+    </Layout>
+  )
 }
 
-export default RootIndex
+export default HomePage

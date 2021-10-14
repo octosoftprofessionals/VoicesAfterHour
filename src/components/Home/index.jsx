@@ -1,10 +1,16 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 
+import { graphql } from 'gatsby'
+
 import LandingBanner from './LandingBanner'
 import Scroll from '@Components/Scroll'
 
-const Home = () => {
+const Home = ({ data }) => {
+  const {
+    allContentfulAsset: { edges },
+  } = data
+
   return (
     <Grid container justify="center" alignContent="center">
       <LandingBanner
