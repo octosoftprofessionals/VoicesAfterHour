@@ -9,8 +9,8 @@ import { colors, shadows, weight } from '@Styles'
 const Podcast = ({ title, description, link }) => {
   const classes = useStyles()
   return (
-    <Grid item container justifyContent="center">
-      <Grid item xs={10} md={5} container justifyContent="center">
+    <Grid item container justifyContent="center" className={classes.root}>
+      <Grid item xs={10} md={8} container justifyContent="center">
         <Typography variant="h2" className={classes.title}>
           {title}
         </Typography>
@@ -20,7 +20,9 @@ const Podcast = ({ title, description, link }) => {
             {'Learn more.'}
           </Link>
         </Typography>
-        <Grid item xs={10} container justifyContent="space-evenly">
+      </Grid>
+      <Grid item xs={10} md={5} container justifyContent="space-evenly">
+        <Grid item xs={5} md={6} container justifyContent="center">
           <Button
             className={classes.button}
             variant="contained"
@@ -34,6 +36,8 @@ const Podcast = ({ title, description, link }) => {
               {'LISTEN ON SPOTIFY'}
             </Typography>
           </Button>
+        </Grid>
+        <Grid item xs={5} md={6} container justifyContent="center">
           <Button
             className={classes.button}
             variant="contained"
@@ -54,6 +58,7 @@ const Podcast = ({ title, description, link }) => {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: { paddingBottom: theme.spacing(10) },
   title: {
     fontFamily: theme.typography.fontFamily[1],
     textDecoration: 'underline',
@@ -72,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'inherit',
   },
   txtBtn: {
-    padding: theme.spacing(2.5),
+    padding: theme.spacing(2),
     letterSpacing: '0.05rem',
     fontWeight: weight.l,
     color: colors.Tolopea,

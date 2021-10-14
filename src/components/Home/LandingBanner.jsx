@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     marginTop: theme.spacing(6),
     columnGap: theme.spacing(6),
+    paddingBottom: theme.spacing(4),
   },
   boxTitles: { position: 'relative', minHeight: '50vh' },
   imageLeft: {
