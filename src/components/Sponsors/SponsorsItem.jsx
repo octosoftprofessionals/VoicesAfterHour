@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     paddingBottom: '50%',
   },
+  boxText: {
+    overflowWrap: 'break-word'
+  }
 }))
 
 const SponsorsItem = ({ sponsorName, imageUrl }) => {
@@ -30,8 +33,8 @@ const SponsorsItem = ({ sponsorName, imageUrl }) => {
     >
       <Grid item className={classes.image} xs={4} />
 
-      <Grid item xs={7}>
-        <Typography variant="h2">{sponsorName}</Typography>
+      <Grid item xs={7} className={classes.boxText}>
+        <Typography variant="h6" >{sponsorName}</Typography>
       </Grid>
     </Grid>
   )

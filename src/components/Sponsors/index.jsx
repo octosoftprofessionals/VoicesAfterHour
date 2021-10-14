@@ -7,15 +7,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
   },
-  boxSponsorItems: {
-    // rowGap: theme.spacing(2),
-    // columnGap: theme.spacing(2),
-  },
 }))
 
 const sponsorsArr = [
   {
-    sponsorName: 'lorem ipsum',
+    sponsorName: 'lorem ipsum buenas y santas',
     sponsorImage:
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
   },
@@ -25,7 +21,12 @@ const sponsorsArr = [
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
   },
   {
-    sponsorName: 'lorem ipsum',
+    sponsorName: 'lorem ipsum que onda roger loquito',
+    sponsorImage:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
+  },
+  {
+    sponsorName: 'lorem ipsum te voy a dejar sin laburo cuando te des vuelta',
     sponsorImage:
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
   },
@@ -35,12 +36,7 @@ const sponsorsArr = [
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
   },
   {
-    sponsorName: 'lorem ipsum',
-    sponsorImage:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
-  },
-  {
-    sponsorName: 'lorem ipsum',
+    sponsorName: 'lorem ipsum onda el jeremaia',
     sponsorImage:
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finfluencermarketing.ai%2Fwp-content%2Fuploads%2F2020%2F05%2FPodcast-blog-6.jpg&f=1&nofb=1',
   },
@@ -83,7 +79,7 @@ const Sponsors = () => {
       <Typography variant="h2" className={classes.root}>
         SPONSORS
       </Typography>
-      <Grid container justify="center" className={classes.boxSponsorItems}>
+      <Grid container justify="center" >
         {sponsorsArr.map(({ sponsorName, sponsorImage }, index) => (
           <SponsorsItem
             key={index}
