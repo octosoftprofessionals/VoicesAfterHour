@@ -1,63 +1,42 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
+import Layout from '@Layout'
+import { Home } from '@Components'
+import { useStaticQuery, graphql } from 'gatsby'
 
-class RootIndex extends React.Component {
-  render() {
-    // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
-
-    return (
-      <Layout>
-        <div>HOME</div>
-      </Layout>
-    )
-  }
-}
-
-export default RootIndex
-
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
+const HomePage = (props) => {
+  const data = useStaticQuery(graphql`
+    query Home {
+      allContentfulAsset {
+        edges {
+          node {
+            title
+            file {
+              url
+            }
+          }
         }
-        description {
-          childMarkdownRemark {
-            html
+      }
+      allContentfulSponsors {
+        edges {
+          node {
+            image {
+              file {
+                url
+              }
+            }
+            sponsorName
           }
         }
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      nodes {
-        name
-        shortBio {
-          shortBio
-        }
-        title
-        heroImage: image {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            width: 1180
-          )
-        }
-      }
-    }
-  }
-`
+  `)
+
+  return (
+    <Layout>
+      <Home data={data} />
+    </Layout>
+  )
+}
+
+export default HomePage

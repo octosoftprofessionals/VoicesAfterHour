@@ -1,16 +1,17 @@
 {
-  "name": "informacion-es-poder",
+  "name": "voices-after-hour",
   "description": "Contentful Gatsby Starter Website",
   "private": true,
-  "version": "0.1.0",
-  "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
+  "version": "0.1.6",
+  "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Agustina Ruidiaz <agusruidiaz@hotmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
-    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
+    "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "gatsby": "^3.10.1",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-material-ui": "^3.0.1",
@@ -47,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
+    "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
   },
   "scripts": {
     "dev": "gatsby develop",

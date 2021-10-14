@@ -1,9 +1,13 @@
 import React from 'react'
-
-import Layout from '../components/Layout'
+import Layout from '@Layout'
+import {AboutUs} from '@Components'
 
 const aboutUs = () => {
-  return <Layout>ABOUT US</Layout>
+  return (
+    <Layout>
+      <AboutUs />
+    </Layout>
+  )
 }
 
 export default aboutUs

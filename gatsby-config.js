@@ -36,8 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful Starter',
-    description: 'Official Contentful Gatsby Starter',
+    title: 'VSH-Website',
+    description: '',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -57,6 +57,13 @@ module.exports = {
         endpoint:
           'https://octosoftprofessionals.us1.list-manage.com/subscribe/post?u=81ad31ef8de1fda17fb10f392&amp;id=dcc733877d',
         timeout: 3500,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ['Roboto', 'Bebas Neue'],
+        display: 'swap',
       },
     },
   ],
