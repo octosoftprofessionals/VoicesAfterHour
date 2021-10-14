@@ -30,6 +30,7 @@ const Home = ({ data }) => {
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(assets, 'ilus 3')}
           link={'/aboutUs'}
+          right
         />
 
         <Podcast
