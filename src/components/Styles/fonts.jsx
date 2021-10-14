@@ -1,7 +1,7 @@
 export const size = {
   xxl: '11.4rem',
-  xl: '',
-  l: '',
+  xl: '8rem',
+  l: '6rem',
   m: '',
   s: '',
   xs: '',
