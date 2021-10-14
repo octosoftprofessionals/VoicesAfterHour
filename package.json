@@ -1,11 +1,11 @@
 {
-  "name": "voices-after-hours",
+  "name": "voices-after-hour",
   "description": "Contentful Gatsby Starter Website",
   "private": true,
-  "version": "0.1.5",
-  "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
+  "version": "0.1.6",
+  "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Agustina Ruidiaz <agusruidiaz@hotmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
-    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
+    "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -48,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git@github.com:obsidian-software-service/InformacionEsPoder.git"
+    "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
   },
   "scripts": {
     "dev": "gatsby develop",

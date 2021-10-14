@@ -6,49 +6,6 @@ import MicIcon from '@Assets/micIcon.svg'
 import { colors, shadows, size, lineHeight, weight } from '@Styles'
 import micIconico from '@Assets/micIconico.png'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    position: 'relative',
-    marginTop: theme.spacing(6),
-    columnGap: theme.spacing(6),
-  },
-  boxTitles: { position: 'relative', minHeight: '50vh' },
-  imageLeft: {
-    backgroundImage: `url(${micIconico})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    position: 'absolute',
-    paddingBottom: '31vw',
-    width: '31vw',
-    left: '-15.5%',
-  },
-  imageRight: {
-    backgroundImage: ({ imageUrl }) => `url(${imageUrl})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    minHeight: '30vh',
-  },
-  icon: { fontSize: theme.typography.h3.fontSize },
-  firstTitle: {
-    fontFamily: theme.typography.fontFamily[1],
-    color: colors.ColumbiaBlue,
-    fontSize: size.xxl,
-    lineHeight: lineHeight.m,
-  },
-  secundTitle: {
-    fontFamily: theme.typography.fontFamily[1],
-    color: colors.HotPink,
-    lineHeight: lineHeight.l,
-    textShadow: `${shadows.textShadow1}, ${shadows.textShadow2}`,
-  },
-  description: {
-    fontWeight: weight.m,
-    color: colors.LightCyan,
-    fontFamily: theme.typography.fontFamily[0],
-  },
-}))
-
 const LandingBanner = ({ description, imageUrl }) => {
   const classes = useStyles({ imageUrl })
   return (
@@ -78,5 +35,51 @@ const LandingBanner = ({ description, imageUrl }) => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    position: 'relative',
+    marginTop: theme.spacing(6),
+    columnGap: theme.spacing(6),
+  },
+  boxTitles: { position: 'relative', minHeight: '50vh' },
+  imageLeft: {
+    backgroundImage: `url(${micIconico})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    paddingBottom: '31vw',
+    width: '31vw',
+    left: '-15.5%',
+  },
+  imageRight: {
+    backgroundImage: ({ imageUrl }) => `url(${imageUrl})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    minHeight: '30vh',
+  },
+  icon: { fontSize: theme.typography.h3.fontSize },
+  firstTitle: {
+    fontFamily: theme.typography.fontFamily[1],
+    color: colors.ColumbiaBlue,
+    fontSize: size.xxl,
+    lineHeight: lineHeight.m,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: size.l,
+    },
+  },
+  secundTitle: {
+    fontFamily: theme.typography.fontFamily[1],
+    color: colors.HotPink,
+    lineHeight: lineHeight.l,
+    textShadow: `${shadows.textShadow1}, ${shadows.textShadow2}`,
+  },
+  description: {
+    fontWeight: weight.m,
+    color: colors.LightCyan,
+    fontFamily: theme.typography.fontFamily[0],
+  },
+}))
 
 export default LandingBanner
