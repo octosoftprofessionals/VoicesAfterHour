@@ -4,7 +4,7 @@ import Layout from '@Layout'
 import { Home } from '@Components'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const HomePage = (props) => {
+const HomePage = () => {
   const data = useStaticQuery(graphql`
     query Home {
       allContentfulAsset {
