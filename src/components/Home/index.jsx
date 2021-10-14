@@ -1,10 +1,9 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-
-import { Scroll, Banner } from '@Components'
+import { Scroll, Banner, CardImage } from '@Components'
 import { finedImgUrl } from '@Utils'
-
 import LandingBanner from './LandingBanner'
+
 const Home = ({ data }) => {
   const {
     allContentfulAsset: { edges },
@@ -27,6 +26,8 @@ const Home = ({ data }) => {
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(edges, 'ilus 3')}
         />
+
+        <CardImage />
       </Scroll>
     </Grid>
   )

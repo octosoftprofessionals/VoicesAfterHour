@@ -3,5 +3,6 @@ import Banner from './General/Banner'
 import Scroll from './General/Scroll'
 import Home from './Home'
 import PrimaryInput from './General/PrimaryInput'
+import CardImage from './General/CardImage'
 
-export { TitlePage, Banner, Scroll, Home, PrimaryInput }
+export { TitlePage, Banner, Scroll, Home, PrimaryInput, CardImage }
