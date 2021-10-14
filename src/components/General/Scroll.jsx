@@ -3,7 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import ScrollIcon from '@Assets/scrollIcon.svg'
-import { colors } from '@Styles/Color'
+import { colors, weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   scroll: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: colors.LightCyan,
-    fontWeight: 700,
+    fontWeight: weight.xl,
     textTransform: 'uppercase',
   },
   boxArrowDown: { position: 'relative' },

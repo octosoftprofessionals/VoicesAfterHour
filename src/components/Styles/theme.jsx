@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
-import { colors, shadows } from './Color'
+import { colors, shadows } from './color'
 
 let Theme = createTheme({
   overrides: {

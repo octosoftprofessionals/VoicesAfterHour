@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { colors, shadows } from '@Styles/Color'
+import { colors, shadows, weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -13,11 +13,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   linkText: {
-    fontWeight: 400,
     color: colors.HotPink,
   },
   selector: {
-    fontWeight: 700,
+    fontWeight: weight.xl,
     '& p::after': {
       content: '""',
       width: '100%',

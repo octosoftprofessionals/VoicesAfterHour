@@ -3,7 +3,7 @@ import { Grid, Hidden, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import MicIcon from '@Assets/micIcon.svg'
-import { colors, shadows } from '@Styles/Color'
+import { colors, shadows, size, lineHeight, weight } from '@Styles'
 import micIconico from '@Assets/micIconico.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -32,20 +32,18 @@ const useStyles = makeStyles((theme) => ({
   icon: { fontSize: theme.typography.h3.fontSize },
   firstTitle: {
     fontFamily: theme.typography.fontFamily[1],
-    fontWeight: 400,
     color: colors.ColumbiaBlue,
-    fontSize: '11.4rem',
-    lineHeight: '0.65',
+    fontSize: size.xxl,
+    lineHeight: lineHeight.m,
   },
   secundTitle: {
     fontFamily: theme.typography.fontFamily[1],
-    fontWeight: 400,
     color: colors.HotPink,
-    lineHeight: '1.1',
+    lineHeight: lineHeight.l,
     textShadow: `${shadows.textShadow1}, ${shadows.textShadow2}`,
   },
   description: {
-    fontWeight: 500,
+    fontWeight: weight.m,
     color: colors.LightCyan,
     fontFamily: theme.typography.fontFamily[0],
   },
