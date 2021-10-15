@@ -1,6 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
-import { Scroll, Banner, CardImage } from '@Components'
+import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 
 import { finedImgUrl } from '@Utils'
 
@@ -14,7 +13,7 @@ const Home = ({ data }) => {
     allContentfulSponsors: { edges: sponsors },
   } = data
   return (
-    <Grid container justify="center" alignContent="center">
+    <MainGrid>
       <LandingBanner
         description={
           'Amet enim irure qui sunt. Labore proident magna minim id dolor. Occaecat dolor officia dolor voluptate mollit labore eu voluptate. Esse irure sint et ipsum consectetur laborum dolor velit voluptate cupidatat anim dolor.Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est.'
@@ -30,6 +29,7 @@ const Home = ({ data }) => {
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(assets, 'ilus 3')}
           link={'/aboutUs'}
+          right
         />
 
         <Podcast
@@ -44,7 +44,7 @@ const Home = ({ data }) => {
 
         <Sponsors sponsors={sponsors} />
       </Scroll>
-    </Grid>
+    </MainGrid>
   )
 }
 

@@ -5,6 +5,7 @@ let Theme = createTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
+        html: { scrollBehavior: 'smooth' },
         '*::-webkit-scrollbar': {
           width: '.5rem',
         },
