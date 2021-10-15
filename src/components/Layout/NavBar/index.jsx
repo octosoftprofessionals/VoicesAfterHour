@@ -4,56 +4,31 @@ import { Link } from 'gatsby'
 
 import {
   AppBar,
-  Toolbar,
-  SwipeableDrawer,
+  Grid,
   Hidden,
   IconButton,
-  Grid,
+  SwipeableDrawer,
+  useScrollTrigger,
+  Toolbar,
 } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors } from '@Styles'
+import { colors, shadows } from '@Styles'
 import LogoVAH from '@Assets/VAH-icon.svg'
 
 import NavLinks from './NavLinks'
 import HideOnScroll from './HideOnScroll'
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    background: 'transparent',
-    boxShadow: 'none',
-    minHeight: theme.spacing(25),
-    justifyContent: 'center',
-  },
-  link: {
-    textDecoration: 'none',
-  },
-  boxLinks: {
-    padding: theme.spacing(4),
-    rowGap: theme.spacing(4),
-    column: theme.spacing(4),
-  },
-  drawer: {
-    '@global': {
-      '.MuiDrawer-paperAnchorRight': {
-        width: '20vmax',
-        backgroundColor: theme.palette.background.default,
-      },
-    },
-  },
-  iconDrawer: {
-    color: colors.HotPink,
-  },
-}))
-
 const NavBar = ({ ...props }) => {
   const classes = useStyles()
   const [showDrawer, setShowDrawer] = useState(false)
+  const trigger = useScrollTrigger()
+
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
-        <HideOnScroll {...props}>
+      <HideOnScroll {...props} trigger={trigger}>
+        <AppBar position="sticky" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <Grid
               container
@@ -83,8 +58,8 @@ const NavBar = ({ ...props }) => {
               </Grid>
             </Grid>
           </Toolbar>
-        </HideOnScroll>
-      </AppBar>
+        </AppBar>
+      </HideOnScroll>
       <Hidden lgUp>
         <SwipeableDrawer
           className={classes.drawer}
@@ -99,5 +74,33 @@ const NavBar = ({ ...props }) => {
     </>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    background: colors.Tolopea,
+    boxShadow: shadows.boxShadow2,
+    minHeight: theme.spacing(26),
+    justifyContent: 'center',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  boxLinks: {
+    padding: theme.spacing(4),
+    rowGap: theme.spacing(4),
+    column: theme.spacing(4),
+  },
+  drawer: {
+    '@global': {
+      '.MuiDrawer-paperAnchorRight': {
+        width: '20vmax',
+        backgroundColor: theme.palette.background.default,
+      },
+    },
+  },
+  iconDrawer: {
+    color: colors.HotPink,
+  },
+}))
 
 export default NavBar

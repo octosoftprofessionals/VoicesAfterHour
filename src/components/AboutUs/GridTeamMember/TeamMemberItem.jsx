@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import { Avatar, Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, weight, lineHeight } from '@Styles'
+import { colors, weight } from '@Styles'
 
 const TeamMemberItem = ({ imageUrl, fullname, title, description }) => {
   const classes = useStyles()
