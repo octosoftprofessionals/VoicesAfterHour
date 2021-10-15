@@ -6,7 +6,6 @@ import { colors } from '@Styles'
 
 const Sponsors = ({ sponsors }) => {
   const classes = useStyles()
-  console.log('sponsors :>> ', sponsors)
   return (
     <Grid container justifyContent="center" className={classes.root}>
       <Grid container item xs={10} justifyContent="center">
