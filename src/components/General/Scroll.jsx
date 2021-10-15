@@ -5,34 +5,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import ScrollIcon from '@Assets/scrollIcon.svg'
 import { colors, weight } from '@Styles'
 
-const useStyles = makeStyles((theme) => ({
-  scroll: {
-    padding: theme.spacing(0, 2),
-    rowGap: theme.spacing(11),
-  },
-  title: {
-    color: colors.LightCyan,
-    fontWeight: weight.xl,
-    textTransform: 'uppercase',
-  },
-  boxArrowDown: { position: 'relative' },
-  arrowDown: {
-    position: 'absolute',
-    bottom: -25,
-    animation: '$move 1666ms cubic-bezier(0.71, 0.01, 0.3, 0.99) infinite',
-  },
-  '@keyframes move': {
-    '0%': {
-      bottom: -25,
-    },
-    '50%': {
-      bottom: 0,
-    },
-    '100%': {
-      bottom: -25,
-    },
-  },
-}))
 const Scroll = ({ title, href, children }) => {
   const classes = useStyles()
   return (
@@ -62,5 +34,34 @@ const Scroll = ({ title, href, children }) => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  scroll: {
+    padding: theme.spacing(0, 2),
+    rowGap: theme.spacing(11),
+  },
+  title: {
+    color: colors.LightCyan,
+    fontWeight: weight.xl,
+    textTransform: 'uppercase',
+  },
+  boxArrowDown: { position: 'relative' },
+  arrowDown: {
+    position: 'absolute',
+    bottom: -25,
+    animation: '$move 1666ms cubic-bezier(0.71, 0.01, 0.3, 0.99) infinite',
+  },
+  '@keyframes move': {
+    '0%': {
+      bottom: -25,
+    },
+    '50%': {
+      bottom: 0,
+    },
+    '100%': {
+      bottom: -25,
+    },
+  },
+}))
 
 export default Scroll
