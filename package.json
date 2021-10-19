@@ -1,8 +1,8 @@
 {
-  "name": "voices-after-hour",
-  "description": "Contentful Gatsby Starter Website",
+  "name": "voces-after-hours",
+  "description": "Website dedicated to the creation of podcast and radio content",
   "private": true,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Agustina Ruidiaz <agusruidiaz@hotmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
     "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
@@ -36,6 +36,10 @@
   },
   "homepage": "",
   "keywords": [
+    "voice",
+    "voces",
+    "after",
+    "hours",
     "gatsby",
     "contentful",
     "starter",
