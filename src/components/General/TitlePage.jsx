@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: colors.LightCyan,
     textAlign: 'center',
     paddingBottom: theme.spacing(2.5),
+    lineHeight: '36px',
   },
 }))
 
