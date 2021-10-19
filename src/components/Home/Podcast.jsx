@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Grid, Typography, Button } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import YouTube from '@Assets/youtubeIcon.svg'
-import Spotify from '@Assets/spotifyIcon.svg'
-import { colors, shadows, weight } from '@Styles'
+import { colors } from '@Styles'
+import { Buttons } from '@Components'
+
 const Podcast = ({ title, description, link }) => {
   const classes = useStyles()
   return (
@@ -75,17 +75,6 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     color: 'inherit',
-  },
-  txtBtn: {
-    padding: theme.spacing(2),
-    letterSpacing: '0.05rem',
-    fontWeight: weight.l,
-    color: colors.Tolopea,
-  },
-  button: {
-    backgroundColor: colors.HotPink,
-    boxShadow: shadows.boxShadow4,
-    borderRadius: theme.spacing(2),
   },
 }))
 
