@@ -16,14 +16,14 @@ const LandingBanner = ({ description, imageUrl }) => {
         </Hidden>
         <Grid item xs={11} md={9} container className={classes.boxTitles}>
           <Typography variant="h1" className={classes.firstTitle}>
-            VOICES
-            <Grid container alignItems="center">
-              <Typography variant="h1" className={classes.secundTitle}>
-                AFTER HOUR
-              </Typography>
-              <MicIcon className={classes.icon} />
-            </Grid>
+            VOCES
           </Typography>
+          <Grid container alignItems="center">
+            <Typography variant="h1" className={classes.secundTitle}>
+              AFTER HOURS
+            </Typography>
+            <MicIcon className={classes.icon} />
+          </Grid>
           <Typography variant="h5" className={classes.description}>
             {description}
           </Typography>
@@ -65,9 +65,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily[1],
     color: colors.ColumbiaBlue,
     fontSize: size.xxl,
+    letterSpacing: '0.7rem',
     lineHeight: lineHeight.m,
     [theme.breakpoints.down('sm')]: {
-      fontSize: size.l,
+      fontSize: '26vw',
     },
   },
   secundTitle: {
