@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import TeamMemberItem from './TeamMemberItem'
 
+
 const membersDumy = [
   {
     imageUrl:
@@ -91,6 +92,7 @@ const GridTeamMember = ({ members }) => {
             key={i}
           />
         ))}
+       
       </Grid>
     </Grid>
   )
@@ -98,7 +100,7 @@ const GridTeamMember = ({ members }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(20, 0) },
-  grid: { rowGap: theme.spacing(14), columnGap: theme.spacing(12) },
+  grid: { rowGap: theme.spacing(14), columnGap: theme.spacing(18) },
 }))
 
 export default GridTeamMember
