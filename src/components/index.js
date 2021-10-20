@@ -5,6 +5,7 @@ import Scroll from './General/Scroll'
 import PrimaryInput from './General/PrimaryInput'
 import CardImage from './General/CardImage'
 import MainGrid from './General/MainGrid'
+import Iframe from './General/Iframe'
 
 // ---- pages components ---- //
 import Home from './Home'
@@ -23,4 +24,5 @@ export {
   MainGrid,
   Podcast,
   ContactUs,
+  Iframe,
 }
