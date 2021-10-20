@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& label': {
       transform: 'translate(12px, 18px) scale(1)',
-      color: theme.palette.primary.contrastText,
+      color: ({ color }) => color ?? theme.palette.primary.contrastText,
     },
     '& label span': {
       display: 'none',
@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PrimaryInput = ({ className, ...otherProps }) => {
-  const classes = useStyles()
+const PrimaryInput = ({ className, color, ...otherProps }) => {
+  const classes = useStyles({ color })
   return (
     <FormControl variant="filled" size="small" fullWidth>
       <TextField

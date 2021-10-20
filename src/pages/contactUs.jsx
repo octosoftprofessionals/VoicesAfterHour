@@ -1,13 +1,31 @@
 import React from 'react'
+
+import { useStaticQuery, graphql } from 'gatsby'
+
 import Layout from '@Layout'
 import { ContactUs } from '@Components'
 
-const contactUs = () => {
+const ContactUsPage = () => {
+  const data = useStaticQuery(graphql`
+    query ContactUs {
+      allContentfulAsset(filter: { title: { eq: "contactUs" } }) {
+        edges {
+          node {
+            title
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
-      <ContactUs />
+      <ContactUs data={data} />
     </Layout>
   )
 }
 
-export default contactUs
+export default ContactUsPage
