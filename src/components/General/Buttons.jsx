@@ -7,10 +7,10 @@ import YouTube from '@Assets/youtubeIcon.svg'
 import Spotify from '@Assets/spotifyIcon.svg'
 import { colors, shadows, weight } from '@Styles'
 
-const Buttons = ({ btnBackground, btnTextColor }) => {
+const Buttons = ({ btnBackground, btnTextColor, mdWidth }) => {
   const classes = useStyles({ btnBackground, btnTextColor })
   return (
-    <Grid item xs={10} md={5} container justifyContent="space-evenly">
+    <Grid item xs={10} md={mdWidth ?? 5} container justifyContent="space-evenly">
       <Grid item xs={5} md={6} container justifyContent="center">
         <Button
           className={classes.button}
