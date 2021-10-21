@@ -4,73 +4,6 @@ import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import TeamMemberItem from './TeamMemberItem'
 
-
-const membersDumy = [
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-  {
-    imageUrl:
-      'https://st.depositphotos.com/1001951/2049/i/450/depositphotos_20498165-stock-photo-wild-animal.jpg',
-    fullname: 'Miguel Antonio Perez',
-    title: 'Miguel Antonio',
-    description:
-      'Eiusmod laboris consectetur veniam dolore sunt sint officia eu consectetur consequat enim voluptate consequat. Velit nisi labore cillum in quis eiusmod ipsum anim magna ad deserunt veniam. Eiusmod id irure qui amet reprehenderit cupidatat minim amet cillum eu nulla.',
-  },
-]
 const GridTeamMember = ({ members }) => {
   const classes = useStyles()
   return (
@@ -83,16 +16,15 @@ const GridTeamMember = ({ members }) => {
         justify="center"
         className={classes.grid}
       >
-        {membersDumy.map(({ imageUrl, fullname, title, description }, i) => (
+        {members.map(({ node: { image, name, shortBio, title } }, i) => (
           <TeamMemberItem
-            imageUrl={imageUrl}
-            fullname={fullname}
+            imageUrl={image.file.url}
+            fullname={name}
             title={title}
-            description={description}
+            description={shortBio.shortBio}
             key={i}
           />
         ))}
-       
       </Grid>
     </Grid>
   )

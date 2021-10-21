@@ -4,13 +4,20 @@ import { TitlePage, MainGrid, Scroll,CardImage } from '@Components'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import GridTeamMember from './GridTeamMember'
-import AboutUsBackground from '../../assets/Objects.png'
-import {finedImgUrl} from '@Utils'
 
 const AboutUs = ({ data }) => {
-  // const {
-  //   allContentfulAsset: { edges: assets },
-  // } = data
+  const {
+    allContentfulAsset: {
+      edges: [
+        {
+          node: {
+            file: { url },
+          },
+        },
+      ],
+    },
+    allContentfulPerson: { edges: members },
+  } = data
 
   const classes = useStyles()
   const description =
@@ -20,7 +27,7 @@ const AboutUs = ({ data }) => {
     <MainGrid>
       <TitlePage title="About Us" showText text={description} />
       <Scroll title={'Know us'} href={'ourTeam'}>
-        <GridTeamMember members={[]} />
+        <GridTeamMember members={members} />
       </Scroll>
       <Grid
         item
@@ -30,7 +37,7 @@ const AboutUs = ({ data }) => {
         alignItems="flex-end"
         className={classes.imgContainer}
       >
-        <CardImage imageUrl={AboutUsBackground} />
+        <CardImage imageUrl={url} />
       </Grid>
     </MainGrid>
   )
@@ -40,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(20, 0) },
   grid: { rowGap: theme.spacing(14), columnGap: theme.spacing(18) },
   imgContainer: {
-    overflow:'hidden',
-    height: '20rem',
+    overflow: 'hidden',
+    height: '40vh',
   },
 }))
 
