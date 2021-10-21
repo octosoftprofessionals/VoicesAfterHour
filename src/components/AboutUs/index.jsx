@@ -4,8 +4,11 @@ import { TitlePage, MainGrid, Scroll,CardImage } from '@Components'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import GridTeamMember from './GridTeamMember'
+import AboutUsBackground from '../../assets/Objects.png'
+import {finedImgUrl} from '@Utils'
 
 const AboutUs = ({ data }) => {
+<<<<<<< HEAD
   const {
     allContentfulAsset: {
       edges: [
@@ -18,6 +21,11 @@ const AboutUs = ({ data }) => {
     },
     allContentfulPerson: { edges: members },
   } = data
+=======
+  // const {
+  //   allContentfulAsset: { edges: assets },
+  // } = data
+>>>>>>> 6004e2f4800bf1bfd7e3e8a36ed0d3c2351ee504
 
   const classes = useStyles()
   const description =
@@ -37,7 +45,11 @@ const AboutUs = ({ data }) => {
         alignItems="flex-end"
         className={classes.imgContainer}
       >
+<<<<<<< HEAD
         <CardImage imageUrl={url} />
+=======
+        <CardImage imageUrl={AboutUsBackground} />
+>>>>>>> 6004e2f4800bf1bfd7e3e8a36ed0d3c2351ee504
       </Grid>
     </MainGrid>
   )
@@ -47,8 +59,13 @@ const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(20, 0) },
   grid: { rowGap: theme.spacing(14), columnGap: theme.spacing(18) },
   imgContainer: {
+<<<<<<< HEAD
     overflow: 'hidden',
     height: '40vh',
+=======
+    overflow:'hidden',
+    height: '20rem',
+>>>>>>> 6004e2f4800bf1bfd7e3e8a36ed0d3c2351ee504
   },
 }))
 

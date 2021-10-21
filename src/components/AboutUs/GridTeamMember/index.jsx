@@ -25,6 +25,7 @@ const GridTeamMember = ({ members }) => {
             key={i}
           />
         ))}
+       
       </Grid>
     </Grid>
   )
