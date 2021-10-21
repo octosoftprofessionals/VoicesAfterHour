@@ -4,22 +4,24 @@ import Typography from '@material-ui/core/Typography'
 import { Avatar, Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, weight } from '@Styles'
+import { colors, weight, shadows } from '@Styles'
 
 const TeamMemberItem = ({ imageUrl, fullname, title, description }) => {
   const classes = useStyles()
   return (
     <Grid item xs={12} className={classes.root}>
-      <Paper elevation={0} className={classes.card}>
-        <Grid
-          container
-          justifyContent="center"
-          alignContent="center"
-          className={classes.box}
-        >
-          <div className={classes.boxAvatar}>
+      <Paper elevation={2} className={classes.card}>
+        <Grid container alignContent="center" className={classes.box}>
+          <Grid
+            item
+            xs={12}
+            container
+            alignContent="center"
+            justifyContent="center"
+            className={classes.boxAvatar}
+          >
             <Avatar src={imageUrl} className={classes.avatar} />
-          </div>
+          </Grid>
 
           <Typography variant="h6" className={classes.name}>
             {fullname}
@@ -38,16 +40,19 @@ const TeamMemberItem = ({ imageUrl, fullname, title, description }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: theme.spacing(75),
+    maxWidth: theme.spacing(83),
     minHeight: theme.spacing(108.5),
   },
   card: {
     backgroundColor: colors.MidnightBlue,
     padding: theme.spacing(5, 9),
     borderRadius: theme.spacing(2.5),
+    boxShadow: shadows.boxShadow5,
   },
   box: { rowGap: theme.spacing(2) },
-  boxAvatar: { padding: theme.spacing(4) },
+  boxAvatar: {
+    padding: theme.spacing(4),
+  },
   avatar: {
     height: theme.spacing(40),
     width: theme.spacing(40),

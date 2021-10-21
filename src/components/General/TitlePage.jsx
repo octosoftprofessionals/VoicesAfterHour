@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { colors, size } from '@Styles'
+import { colors } from '@Styles'
 
 const TitlePage = ({ title, showText = false, text }) => {
   const classes = useStyles()
@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: colors.LightCyan,
     textAlign: 'center',
     paddingBottom: theme.spacing(2.5),
+    lineHeight: '36px',
   },
 }))
 
