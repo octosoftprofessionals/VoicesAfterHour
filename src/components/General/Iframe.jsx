@@ -27,7 +27,7 @@ const Iframe = ({ spotifyLink, ...props }) => {
       {...props}
       src={`https://open.spotify.com/embed/${trackRef}`}
       className={
-        match[1] == 'playlist' ? classes.cardMediaL : classes.cardMediaS
+        match[1] === 'playlist' ? classes.cardMediaL : classes.cardMediaS
       }
     ></iframe>
   )
