@@ -1,36 +1,36 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { colors, size } from '@Styles'
+import { colors } from '@Styles'
 
-const TitlePage = ({title, showText=false , text}) => {
-    const classes = useStyles()
-     
-    return (
-      <Grid
-        item
-        container
-        justify="center"
-        alignContent="center"
-        className={classes.root}
-      >
-        <Grid item  xs={10}>
-          <Typography className={classes.title} variant="h2">
-            {title}
-          </Typography>
-        </Grid>
+const TitlePage = ({ title, showText = false, text }) => {
+  const classes = useStyles()
 
-        {showText && (
-          <Grid container xs={10} item justify="center" alignContent="center">
-            <Grid item xs={12} md={4}>
-              <Typography className={classes.description} variant="subtitle1">
-                {text}
-              </Typography>
-            </Grid>
-          </Grid>
-        )}
+  return (
+    <Grid
+      item
+      container
+      justify="center"
+      alignContent="center"
+      className={classes.root}
+    >
+      <Grid item xs={10}>
+        <Typography className={classes.title} variant="h1">
+          {title}
+        </Typography>
       </Grid>
-    )
+
+      {showText && (
+        <Grid container xs={10} item justify="center" alignContent="center">
+          <Grid item xs={12} md={4}>
+            <Typography className={classes.description} variant="subtitle1">
+              {text}
+            </Typography>
+          </Grid>
+        </Grid>
+      )}
+    </Grid>
+  )
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -43,18 +43,14 @@ const useStyles = makeStyles((theme) => ({
     color: colors.ColumbiaBlue,
     textAlign: 'center',
     letterSpacing: '0.02rem',
-    fontSize: size.xxl,
-    [theme.breakpoints.down('sm')]: {
-      fontSize: size.l,
-    },
   },
   description: {
     letterSpacing: '0.05rem',
     color: colors.LightCyan,
     textAlign: 'center',
     paddingBottom: theme.spacing(2.5),
+    lineHeight: '36px',
   },
 }))
 
 export default TitlePage
-
