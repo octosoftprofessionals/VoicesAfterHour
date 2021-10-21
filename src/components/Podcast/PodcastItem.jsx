@@ -6,30 +6,25 @@ import { makeStyles } from '@material-ui/core/styles'
 import { CardImage, Buttons } from '@Components'
 import { colors, shadows } from '@Styles'
 
-const PodcastItem = ({
-  title,
-  description,
-  coverImage,
-  youtubeUrl,
-  spotifyUrl,
-}) => {
+const PodcastItem = (node) => {
   const classes = useStyles()
-
   return (
     <Grid container xs={10} className={classes.root}>
       <Grid item xs={3} className={classes.cardGrid}>
         <CardImage
-          imageUrl={coverImage}
+          imageUrl={node.node.coverImage.file.url}
           minHeight={'none'}
           paddingBottom={'100%'}
           classMediaCustom={classes.classMediaCustom}
         />
       </Grid>
       <Grid item xs={9} className={classes.contentGrid}>
-        <Typography variant="h6" className={classes.title}>
-          {title}
+        <Typography variant="h6" className={classes.textTitle}>
+          {node.node.title}
         </Typography>
-        <Typography className={classes.description}>{description}</Typography>
+        <Typography className={classes.textDescription}>
+          {node.node.description.description}
+        </Typography>
         <Buttons
           btnBackground={colors.Tolopea}
           btnTextColor={colors.HotPink}
@@ -57,8 +52,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 
-  title: { color: colors.HotPink },
-  description: {
+  textTitle: { color: colors.HotPink },
+  textDescription: {
     color: colors.White,
     fontSize: 'small',
     height: '40%',
