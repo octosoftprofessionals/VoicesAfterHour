@@ -41,85 +41,99 @@ const Contact = ({ imgUrl }) => {
   return (
     <form name="contact" onSubmit={handleSubmit} data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
-      <Grid item container justify="space-between" className={classes.root}>
-        <Hidden smDown>
-          <Grid item sm={4} container>
-            <div className={classes.img} />
-          </Grid>
-        </Hidden>
+      <Grid container justify="center">
+        <Grid
+          item
+          container
+          justifyContent="space-between"
+          className={classes.root}
+        >
+          <Hidden smDown>
+            <Grid item sm={4} container>
+              <div className={classes.img} />
+            </Grid>
+          </Hidden>
 
-        <Grid item xs={7} container className={classes.boxForm}>
-          <Grid item xs={6} className={classes.gridItem}>
-            <PrimaryInput
-              id="fullName"
-              value={fullName}
-              name="fullName"
-              onChange={({ target }) => setFullName(target.value)}
-              label="Full name"
-              required
-              color={colors.MidnightBlue}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <PrimaryInput
-              id="SubjectInput"
-              value={subject}
-              name="subject"
-              onChange={({ target }) => setSubject(target.value)}
-              label="Subject (Optional)"
-              color={colors.MidnightBlue}
-            />
-          </Grid>
-          <Grid item xs={6} className={classes.gridItem}>
-            <PrimaryInput
-              id="EmailInput"
-              value={email}
-              name="email"
-              type="email"
-              onChange={({ target }) => setEmail(target.value)}
-              label="Your Email"
-              required
-              color={colors.MidnightBlue}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <PrimaryInput
-              id="PhoneInput"
-              value={phone}
-              name="phone"
-              onChange={({ target }) => setPhone(target.value)}
-              label="Your Phone Number"
-              required
-              color={colors.MidnightBlue}
-            />
-          </Grid>
+          <Grid item xs={11} sm={7} container className={classes.boxForm}>
+            <Grid item xs={6} className={classes.gridItem}>
+              <PrimaryInput
+                id="fullName"
+                value={fullName}
+                name="fullName"
+                onChange={({ target }) => setFullName(target.value)}
+                label="Full name"
+                required
+                color={colors.MidnightBlue}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <PrimaryInput
+                id="SubjectInput"
+                value={subject}
+                name="subject"
+                onChange={({ target }) => setSubject(target.value)}
+                label="Subject (Optional)"
+                color={colors.MidnightBlue}
+              />
+            </Grid>
+            <Grid item xs={6} className={classes.gridItem}>
+              <PrimaryInput
+                id="EmailInput"
+                value={email}
+                name="email"
+                type="email"
+                onChange={({ target }) => setEmail(target.value)}
+                label="Your Email"
+                required
+                color={colors.MidnightBlue}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <PrimaryInput
+                id="PhoneInput"
+                value={phone}
+                name="phone"
+                onChange={({ target }) => setPhone(target.value)}
+                label="Your Phone Number"
+                required
+                color={colors.MidnightBlue}
+              />
+            </Grid>
 
-          <Grid item xs={12}>
-            <PrimaryInput
-              id="ContentInput"
-              value={content}
-              name="content"
-              label="Your Message"
-              onChange={({ target }) => setContent(target.value)}
-              multiline
-              rows={12}
-              color={colors.MidnightBlue}
-              size="small"
-            />
+            <Grid item xs={12}>
+              <PrimaryInput
+                id="ContentInput"
+                value={content}
+                name="content"
+                label="Your Message"
+                onChange={({ target }) => setContent(target.value)}
+                multiline
+                rows={12}
+                color={colors.MidnightBlue}
+                size="small"
+              />
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid container justify="flex-end" className={classes.buttonContainer}>
-        <Button
-          variant="contained"
-          type="submit"
-          className={classes.button}
-          endIcon={<Send />}
+        <Grid
+          item
+          xs={11}
+          sm={12}
+          container
+          justifyContent="flex-end"
+          className={classes.buttonContainer}
         >
-          <Typography variant="subtitle1" className={classes.btnTxt}>
-            Send
-          </Typography>
-        </Button>
+          <Button
+            variant="contained"
+            type="submit"
+            className={classes.button}
+            endIcon={<Send />}
+          >
+            <Typography variant="subtitle1" className={classes.btnTxt}>
+              Send
+            </Typography>
+          </Button>
+        </Grid>
       </Grid>
     </form>
   )
@@ -129,6 +143,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     rowGap: theme.spacing(4),
     paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+    },
   },
   boxForm: { rowGap: theme.spacing(4) },
   img: {
@@ -153,6 +170,19 @@ const useStyles = makeStyles((theme) => ({
   '@global': {
     '.MuiFilledInput-root': {
       backgroundColor: colors.LightCyan,
+    },
+    '.MuiFilledInput-root:hover': {
+      backgroundColor: colors.LightCyanSoft,
+    },
+    '.MuiInputBase-input': {
+      color: colors.MidnightBlue,
+      fontFamily: theme.typography.fontFamily[0],
+    },
+    '.MuiFilledInput-root.Mui-focused': {
+      backgroundColor: colors.LightCyanSoft,
+    },
+    '.MuiFilledInput-underline:after': {
+      borderBottom: `2px solid ${colors.HotPink}`,
     },
   },
 }))
