@@ -26,21 +26,6 @@ const Podcast = ({ title, description, link }) => {
           <Button
             className={classes.button}
             variant="contained"
-            startIcon={<Spotify />}
-          >
-            <Typography
-              variant="button"
-              color="textPrimary"
-              className={classes.txtBtn}
-            >
-              {'LISTEN ON SPOTIFY'}
-            </Typography>
-          </Button>
-        </Grid>
-        <Grid item xs={5} md={6} container justifyContent="center">
-          <Button
-            className={classes.button}
-            variant="contained"
             startIcon={<YouTube />}
           >
             <Typography
@@ -49,6 +34,21 @@ const Podcast = ({ title, description, link }) => {
               className={classes.txtBtn}
             >
               {'VIEW ON YOUTUBE'}
+            </Typography>
+          </Button>
+        </Grid>
+        <Grid item xs={5} md={6} container justifyContent="center">
+          <Button
+            className={classes.button}
+            variant="contained"
+            startIcon={<Spotify />}
+          >
+            <Typography
+              variant="button"
+              color="textPrimary"
+              className={classes.txtBtn}
+            >
+              {'LISTEN ON SPOTIFY'}
             </Typography>
           </Button>
         </Grid>
