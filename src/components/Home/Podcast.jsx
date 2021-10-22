@@ -21,38 +21,7 @@ const Podcast = ({ title, description, link }) => {
           </Link>
         </Typography>
       </Grid>
-      <Grid item xs={10} md={5} container justifyContent="space-evenly">
-        <Grid item xs={5} md={6} container justifyContent="center">
-          <Button
-            className={classes.button}
-            variant="contained"
-            startIcon={<YouTube />}
-          >
-            <Typography
-              variant="button"
-              color="textPrimary"
-              className={classes.txtBtn}
-            >
-              {'VIEW ON YOUTUBE'}
-            </Typography>
-          </Button>
-        </Grid>
-        <Grid item xs={5} md={6} container justifyContent="center">
-          <Button
-            className={classes.button}
-            variant="contained"
-            startIcon={<Spotify />}
-          >
-            <Typography
-              variant="button"
-              color="textPrimary"
-              className={classes.txtBtn}
-            >
-              {'LISTEN ON SPOTIFY'}
-            </Typography>
-          </Button>
-        </Grid>
-      </Grid>
+      <Buttons />
     </Grid>
   )
 }

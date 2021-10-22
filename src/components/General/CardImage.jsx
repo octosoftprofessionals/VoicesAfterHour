@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, CardMedia } from '@material-ui/core'
 
-const CardImage = ({ imageUrl, ...props }) => {
+const CardImage = ({ imageUrl, minHeight, paddingBottom, ...props }) => {
   const classes = useStyles({ minHeight, paddingBottom })
 
   return (
