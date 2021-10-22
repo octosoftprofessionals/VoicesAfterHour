@@ -6,6 +6,8 @@ import PrimaryInput from './General/PrimaryInput'
 import CardImage from './General/CardImage'
 import MainGrid from './General/MainGrid'
 import Iframe from './General/Iframe'
+import Buttons from './General/Buttons'
+import LoadMoreBtn from './General/LoadMoreBtn'
 
 // ---- pages components ---- //
 import Home from './Home'
@@ -25,4 +27,6 @@ export {
   Podcast,
   ContactUs,
   Iframe,
+  Buttons,
+  LoadMoreBtn,
 }
