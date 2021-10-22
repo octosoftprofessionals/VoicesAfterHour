@@ -6,13 +6,14 @@ import { makeStyles } from '@material-ui/core/styles'
 import { CardImage, Buttons } from '@Components'
 import { colors, shadows } from '@Styles'
 
-const PodcastItem = (node) => {
+const PodcastItem = ({ node }) => {
   const classes = useStyles()
+  console.log('node :>> ', node)
   return (
     <Grid container xs={12} className={classes.root}>
       <Grid item xs={3} className={classes.cardGrid}>
         <CardImage
-          imageUrl={node.node.coverImage.file.url}
+          imageUrl={node.coverImage.file.url}
           minHeight={'none'}
           paddingBottom={'100%'}
           classMediaCustom={classes.classMediaCustom}
@@ -20,10 +21,10 @@ const PodcastItem = (node) => {
       </Grid>
       <Grid item xs={9} className={classes.contentGrid}>
         <Typography variant="h6" className={classes.textTitle}>
-          {node.node.title}
+          {node.title}
         </Typography>
         <Typography className={classes.textDescription}>
-          {node.node.description.description}
+          {node.description.description}
         </Typography>
         <Buttons
           btnBackground={colors.Tolopea}

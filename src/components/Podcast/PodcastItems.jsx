@@ -10,25 +10,21 @@ import PodcastItem from './PodcastItem'
 const PodcastItems = ({ month, podcasts }) => {
   const classes = useStyles()
 
-  if (Array.isArray(podcasts)) {
-    if (podcasts.length > 0) {
-      return (
-        <Grid className={classes.root}>
-          <Grid container className={classes.month}>
-            {month}
-          </Grid>
-          <Grid item className={classes.divCard}>
-            {Array.isArray(podcasts) &&
-              podcasts.map(({ node }, i) => <PodcastItem node={node} />)}
-          </Grid>
-          <Grid className={classes.viewAll}>
-            <Typography>View all {month}</Typography>
-          </Grid>
-        </Grid>
-      )
-    }
-  }
-  return null
+  return (
+    <Grid className={classes.root}>
+      <Grid container className={classes.month}>
+        {month}
+      </Grid>
+      <Grid item className={classes.divCard}>
+        {podcasts.map(({ node }, i) => (
+          <PodcastItem node={node} />
+        ))}
+      </Grid>
+      <Grid className={classes.viewAll}>
+        <Typography>View all {month}</Typography>
+      </Grid>
+    </Grid>
+  )
 }
 
 const useStyles = makeStyles((theme) => ({

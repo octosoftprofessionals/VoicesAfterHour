@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { colors } from '@Styles'
 import { TitlePage, MainGrid } from '@Components'
 
+import { podcastsPerYearList } from '@Utils'
+
 import PodcastContainer from './PodcastContainer'
 
 const Podcast = ({ data }) => {
@@ -24,7 +26,7 @@ const Podcast = ({ data }) => {
         justify={'center'}
         className={classes.root}
       >
-        <PodcastContainer podcasts={podcasts} />
+        <PodcastContainer podcasts={podcastsPerYearList(podcasts)} />
       </Grid>
     </MainGrid>
   )
