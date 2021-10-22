@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Grid, Typography, Button } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import YouTube from '@Assets/youtubeIcon.svg'
-import Spotify from '@Assets/spotifyIcon.svg'
-import { colors, shadows, weight } from '@Styles'
+import { colors } from '@Styles'
+import { Buttons } from '@Components'
+
 const Podcast = ({ title, description, link }) => {
   const classes = useStyles()
   return (
@@ -21,38 +21,7 @@ const Podcast = ({ title, description, link }) => {
           </Link>
         </Typography>
       </Grid>
-      <Grid item xs={10} md={5} container justifyContent="space-evenly">
-        <Grid item xs={5} md={6} container justifyContent="center">
-          <Button
-            className={classes.button}
-            variant="contained"
-            startIcon={<Spotify />}
-          >
-            <Typography
-              variant="button"
-              color="textPrimary"
-              className={classes.txtBtn}
-            >
-              {'LISTEN ON SPOTIFY'}
-            </Typography>
-          </Button>
-        </Grid>
-        <Grid item xs={5} md={6} container justifyContent="center">
-          <Button
-            className={classes.button}
-            variant="contained"
-            startIcon={<YouTube />}
-          >
-            <Typography
-              variant="button"
-              color="textPrimary"
-              className={classes.txtBtn}
-            >
-              {'VIEW ON YOUTUBE'}
-            </Typography>
-          </Button>
-        </Grid>
-      </Grid>
+      <Buttons />
     </Grid>
   )
 }
@@ -69,23 +38,11 @@ const useStyles = makeStyles((theme) => ({
   description: {
     letterSpacing: '0.05rem',
     color: colors.LightCyan,
-    paddingBottom: theme.spacing(2.5),
     textAlign: 'center',
     paddingBottom: theme.spacing(10),
   },
   link: {
     color: 'inherit',
-  },
-  txtBtn: {
-    padding: theme.spacing(2),
-    letterSpacing: '0.05rem',
-    fontWeight: weight.l,
-    color: colors.Tolopea,
-  },
-  button: {
-    backgroundColor: colors.HotPink,
-    boxShadow: shadows.boxShadow4,
-    borderRadius: theme.spacing(2),
   },
 }))
 

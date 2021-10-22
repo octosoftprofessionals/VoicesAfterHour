@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(5, 9),
     borderRadius: theme.spacing(2.5),
     boxShadow: shadows.boxShadow5,
+    height: '100%',
   },
   box: { rowGap: theme.spacing(2) },
   boxAvatar: {

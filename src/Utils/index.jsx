@@ -27,4 +27,68 @@ const submitForm = (formName, params) => {
   })
 }
 
-export { finedImgUrl, submitForm }
+const monthList = (podcasts, year) => {
+  const annualPodcasts = podcasts.filter(({ node }) => {
+    let yearFull = new Date(node.creationDate).getFullYear()
+    if (yearFull === year) {
+      return true
+    }
+  })
+  const setIndexMonth = new Set()
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+  const res = []
+  annualPodcasts.forEach(({ node }) => {
+    let indexMonth = new Date(node.creationDate).getMonth()
+    setIndexMonth.add(indexMonth)
+  })
+
+  setIndexMonth.forEach((value) => {
+    res.push({
+      month: months[value],
+      podcasts: annualPodcasts
+        .filter(({ node }) => {
+          let indexMonth = new Date(node.creationDate).getMonth()
+          if (indexMonth === value) {
+            return true
+          }
+        })
+        .reverse(),
+    })
+  })
+
+  return res
+}
+
+const podcastsPerYearList = (podcasts) => {
+  const res = []
+  const yearsList = new Set()
+
+  podcasts.forEach(({ node }) => {
+    let date = new Date(node.creationDate)
+    const year = date.getFullYear()
+    yearsList.add(year)
+  })
+
+  yearsList.forEach((value) => {
+    res.push({
+      years: value,
+      annualPodcasts: [monthList(podcasts, value)],
+    })
+  })
+  return res
+}
+
+export { finedImgUrl, submitForm, podcastsPerYearList, monthList }

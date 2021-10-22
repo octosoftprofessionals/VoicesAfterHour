@@ -1,14 +1,46 @@
 import React from 'react'
+
+import { Grid } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { colors } from '@Styles'
 import { TitlePage, MainGrid } from '@Components'
 
-const Podcast = () => {
-    const description =
-      'Our team is composed ipsum is simply dummy text of the printing and typesetting industry. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , content here, making it look like readable English. '
-    return (
-      <MainGrid>
-        <TitlePage title="Podcast" showText text={description} />
-      </MainGrid>
-    )
+import { podcastsPerYearList } from '@Utils'
+
+import PodcastContainer from './PodcastContainer'
+
+const Podcast = ({ data }) => {
+  const {
+    allContentfulPodcastPost: { edges: podcasts },
+  } = data
+
+  const classes = useStyles()
+  return (
+    <MainGrid>
+      <TitlePage title="Podcast" showText />
+      <Grid
+        container
+        xs={12}
+        sm={12}
+        justify={'center'}
+        className={classes.root}
+      >
+        <PodcastContainer podcasts={podcastsPerYearList(podcasts)} />
+      </Grid>
+    </MainGrid>
+  )
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    rowGap: theme.spacing(6),
+  },
+  title: {
+    fontFamily: theme.typography.fontFamily[1],
+    color: colors.ColumbiaBlue,
+    letterSpacing: '0.02rem',
+  },
+}))
 
 export default Podcast

@@ -49,7 +49,7 @@ const FooterNav = () => {
         </Link>
         <Link to={'/'} className={classes.link}>
           <Typography variant="body1" color="primary">
-            Contact
+            Contact Us
           </Typography>
         </Link>
         <Link to={'/'} className={classes.link}>
