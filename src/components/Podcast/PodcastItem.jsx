@@ -9,7 +9,7 @@ import { colors, shadows } from '@Styles'
 const PodcastItem = (node) => {
   const classes = useStyles()
   return (
-    <Grid container xs={10} className={classes.root}>
+    <Grid container xs={12} className={classes.root}>
       <Grid item xs={3} className={classes.cardGrid}>
         <CardImage
           imageUrl={node.node.coverImage.file.url}
@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(258),
     borderRadius: theme.spacing(3),
     boxShadow: shadows.boxShadow5,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cardGrid: { maxHeight: 'inherit', display: 'flex', alignItems: 'center' },
   contentGrid: {

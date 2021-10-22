@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
+import { Grid } from '@material-ui/core'
 
 import { colors } from '@Styles'
 
@@ -12,13 +13,15 @@ const PodcastItems = ({ month, podcasts }) => {
   if (Array.isArray(podcasts)) {
     if (podcasts.length > 0) {
       return (
-        <>
-          <div className={classes.month}>{month}</div>
-          <div className={classes.divCard}>
+        <Grid className={classes.root}>
+          <Grid container className={classes.month}>
+            {month}
+          </Grid>
+          <Grid item className={classes.divCard}>
             {Array.isArray(podcasts) &&
               podcasts.map(({ node }, i) => <PodcastItem node={node} />)}
-          </div>
-        </>
+          </Grid>
+        </Grid>
       )
     }
   }
@@ -26,14 +29,20 @@ const PodcastItems = ({ month, podcasts }) => {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    rowGap: theme.spacing(4),
+  },
   month: {
     color: colors.ColumbiaBlue,
-    fontSize: '25px',
+    fontSize: '1.7rem',
   },
   divCard: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    rowGap: theme.spacing(6),
   },
 }))
 

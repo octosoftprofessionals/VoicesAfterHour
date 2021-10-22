@@ -10,7 +10,7 @@ import PodcastItems from './PodcastItems'
 const PodcastMonthly = ({ anualPodcast }) => {
   const classes = useStyles()
   return (
-    <Grid>
+    <Grid container className={classes.root}>
       {anualPodcast.map((item, i) =>
         i == 0 ? (
           <div className={classes.year}>{item.year}</div>
@@ -27,6 +27,13 @@ const PodcastMonthly = ({ anualPodcast }) => {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    rowGap: theme.spacing(2),
+    alignItems: 'flex-start',
+    alignContent: 'center',
+  },
   year: {
     color: colors.HotPink,
     fontSize: '30px',
