@@ -6,10 +6,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 const PodcastPage = () => {
   const data = useStaticQuery(graphql`
     query Podcast {
-      allContentfulPodcastPost {
+      allContentfulPodcastPost(sort: { fields: creationDate, order: DESC }) {
         edges {
           node {
-            order
             title
             coverImage {
               file {

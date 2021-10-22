@@ -7,20 +7,15 @@ import { colors } from '@Styles'
 
 import PodcastItems from './PodcastItems'
 
-const PodcastMonthly = ({ anualPodcast }) => {
+const PodcastsAnnual = ({ year, annualPodcasts }) => {
   const classes = useStyles()
   return (
     <Grid container className={classes.root}>
-      {anualPodcast.map((item, i) =>
-        i === 0 ? (
-          <div className={classes.year}>{item.year}</div>
-        ) : (
-          <PodcastItems
-            month={item.month}
-            podcasts={item.podcasts}
-            key={`${item.month}`}
-          />
-        )
+      <div className={classes.year}>{year}</div>
+      {annualPodcasts.map((monthsPodcasts, i) =>
+        monthsPodcasts.map(({ month, podcasts }) => (
+          <PodcastItems month={month} podcasts={podcasts} />
+        ))
       )}
     </Grid>
   )
@@ -41,4 +36,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default PodcastMonthly
+export default PodcastsAnnual

@@ -5,43 +5,23 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { colors } from '@Styles'
 import { LoadMoreBtn } from '@Components'
-import { podcastsPerYearList, podcastsPerMonth } from '@Utils'
 
-import PodcastItems from './PodcastItems'
-import PodcastMonthly from './PodcastMonthly'
+import Annual from './Annual'
 
 const PodcastContainer = ({ podcasts }) => {
-  const podcastsPerYear = podcastsPerYearList(podcasts)
-
-  const historyPodcasts = podcastsPerMonth(podcastsPerYear)
-  console.log('historyPodcasts :>> ', historyPodcasts)
   const classes = useStyles()
   return (
-    // <Grid container className={classes.root}>
-    //   {podcastsPerYear.map((anualPodcast) => (
-    //     <PodcastMonthly
-    //       anualPodcast={anualPodcast}
-    //       key={`${anualPodcast[0].year}`}
-    //     />
-    //   ))}
+    <Grid container className={classes.root}>
+      <Grid>
+        <Grid container xs={12} sm={12} justify={'center'}>
+          {podcasts.map(({ years, annualPodcasts }) => (
+            <Annual year={years} annualPodcasts={annualPodcasts} />
+          ))}
+        </Grid>
+      </Grid>
 
-    //   <Grid>
-    //     <Grid container xs={12} sm={12} justify={'center'}>
-    //       {podcasts.map(({ node }) => (
-    //         <PodcastItems
-    //           title={node.title}
-    //           description={node.description.description}
-    //           coverImage={node.coverImage.file.url}
-    //           youtubeUrl={node.youtubeUrl}
-    //           spotifyUrl={node.spotifyUrl}
-    //         />
-    //       ))}
-    //     </Grid>
-    //   </Grid>
-
-    //   <LoadMoreBtn></LoadMoreBtn>
-    // </Grid>
-    null
+      <LoadMoreBtn />
+    </Grid>
   )
 }
 

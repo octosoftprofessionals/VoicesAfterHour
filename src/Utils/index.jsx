@@ -27,23 +27,13 @@ const submitForm = (formName, params) => {
   })
 }
 
-const yearsList = (podcasts) => {
-  const yearsList = []
-
-  podcasts.forEach(({ node }) => {
-    let date = new Date(node.creationDate)
-    const year = date.getFullYear()
-
-    if (!yearsList.includes(year)) {
-      yearsList.push(year)
+const monthList = (podcasts, year) => {
+  const annualPodcasts = podcasts.filter(({ node }) => {
+    let yearFull = new Date(node.creationDate).getFullYear()
+    if (yearFull === year) {
+      return true
     }
   })
-  yearsList.sort()
-  const sortYearsList = yearsList.reverse()
-  return sortYearsList
-}
-
-const monthList = (year, anualPodcasts) => {
   const setIndexMonth = new Set()
   const months = [
     'January',
@@ -59,8 +49,8 @@ const monthList = (year, anualPodcasts) => {
     'November',
     'December',
   ]
-  const res = [year]
-  anualPodcasts.forEach(({ node }) => {
+  const res = []
+  annualPodcasts.forEach(({ node }) => {
     let indexMonth = new Date(node.creationDate).getMonth()
     setIndexMonth.add(indexMonth)
   })
@@ -68,7 +58,7 @@ const monthList = (year, anualPodcasts) => {
   setIndexMonth.forEach((value) => {
     res.push({
       month: months[value],
-      podcast: anualPodcasts
+      podcasts: annualPodcasts
         .filter(({ node }) => {
           let indexMonth = new Date(node.creationDate).getMonth()
           if (indexMonth === value) {
@@ -82,35 +72,23 @@ const monthList = (year, anualPodcasts) => {
   return res
 }
 
-const podcastsPerMonth = (podcastsPerYearList) => {
-  const res = []
-  podcastsPerYearList.forEach(({ year, anualPodcasts }) => {
-    res.push(monthList(year, anualPodcasts))
-  })
-  return res
-}
-
 const podcastsPerYearList = (podcasts) => {
   const res = []
+  const yearsList = new Set()
 
-  yearsList(podcasts).forEach((year) => {
-    let oneYearPodcasts = podcasts.filter(({ node }) => {
-      let yearFull = new Date(node.creationDate).getFullYear()
-      if (yearFull === year) {
-        return true
-      }
+  podcasts.forEach(({ node }) => {
+    let date = new Date(node.creationDate)
+    const year = date.getFullYear()
+    yearsList.add(year)
+  })
+
+  yearsList.forEach((value) => {
+    res.push({
+      years: value,
+      annualPodcasts: [monthList(podcasts, value)],
     })
-
-    res.push({ year: year, anualPodcasts: oneYearPodcasts })
   })
   return res
 }
 
-export {
-  finedImgUrl,
-  submitForm,
-  yearsList,
-  podcastsPerYearList,
-  monthList,
-  podcastsPerMonth,
-}
+export { finedImgUrl, submitForm, podcastsPerYearList, monthList }
