@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
   description: {
     letterSpacing: '0.05rem',
     color: colors.LightCyan,
-    paddingBottom: theme.spacing(2.5),
     textAlign: 'center',
     paddingBottom: theme.spacing(10),
   },
