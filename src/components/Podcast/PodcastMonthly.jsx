@@ -12,7 +12,7 @@ const PodcastMonthly = ({ anualPodcast }) => {
   return (
     <Grid container className={classes.root}>
       {anualPodcast.map((item, i) =>
-        i == 0 ? (
+        i === 0 ? (
           <div className={classes.year}>{item.year}</div>
         ) : (
           <PodcastItems
