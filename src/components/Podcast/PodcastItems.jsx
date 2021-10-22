@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 
 import { colors } from '@Styles'
 
@@ -21,6 +21,9 @@ const PodcastItems = ({ month, podcasts }) => {
             {Array.isArray(podcasts) &&
               podcasts.map(({ node }, i) => <PodcastItem node={node} />)}
           </Grid>
+          <Grid className={classes.viewAll}>
+            <Typography>View all {month}</Typography>
+          </Grid>
         </Grid>
       )
     }
@@ -32,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: theme.spacing(4),
+    rowGap: theme.spacing(8),
   },
   month: {
     color: colors.ColumbiaBlue,
@@ -43,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     rowGap: theme.spacing(6),
+  },
+  viewAll: {
+    display: 'flex',
+    justifyContent: 'center',
+    color: colors.HotPink,
+    textDecoration: 'underline',
   },
 }))
 

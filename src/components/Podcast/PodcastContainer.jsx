@@ -3,9 +3,9 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { MainGrid } from '@Components'
 import { colors } from '@Styles'
 
+import { LoadMoreBtn } from '@Components'
 import PodcastItems from './PodcastItems'
 import PodcastMonthly from './PodcastMonthly'
 
@@ -133,7 +133,7 @@ const PodcastContainer = ({ podcasts }) => {
 
   const classes = useStyles()
   return (
-    <MainGrid container>
+    <Grid container className={classes.root}>
       {podcastsPerYear.map((anualPodcast) => (
         <PodcastMonthly
           anualPodcast={anualPodcast}
@@ -142,13 +142,7 @@ const PodcastContainer = ({ podcasts }) => {
       ))}
 
       <Grid>
-        <Grid
-          container
-          xs={12}
-          sm={12}
-          justify={'center'}
-          className={classes.root}
-        >
+        <Grid container xs={12} sm={12} justify={'center'}>
           {podcasts.map(({ node }) => (
             <PodcastItems
               title={node.title}
@@ -160,13 +154,17 @@ const PodcastContainer = ({ podcasts }) => {
           ))}
         </Grid>
       </Grid>
-    </MainGrid>
+
+      <LoadMoreBtn></LoadMoreBtn>
+    </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    rowGap: theme.spacing(6),
+    display: 'flex',
+    rowGap: theme.spacing(12),
+    marginBottom: theme.spacing(20),
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
