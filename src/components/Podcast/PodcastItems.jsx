@@ -40,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
   month: {
     color: colors.ColumbiaBlue,
     fontSize: '1.7rem',
+    textTransform: 'uppercase',
+    fontWeight: 'bolder',
   },
   divCard: {
     display: 'flex',
