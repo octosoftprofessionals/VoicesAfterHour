@@ -24,3 +24,7 @@ export const shadows = {
   textShadow1: `-4px -4px 10px ${colors.HotPinkLight}`,
   textShadow2: `4px 4px 10px ${colors.HotPinkLight}`,
 }
+
+export const borders = {
+  border1: `1px solid ${colors.HotPink}`,
+}

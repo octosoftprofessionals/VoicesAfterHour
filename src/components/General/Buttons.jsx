@@ -7,20 +7,19 @@ import Iframe from './Iframe'
 
 import YouTube from '@Assets/youtubeIcon.svg'
 import Spotify from '@Assets/spotifyIcon.svg'
-import { colors, shadows, weight } from '@Styles'
+import { colors, shadows, weight, size } from '@Styles'
 
-const Buttons = ({ btnBackground, btnTextColor, mdWidth, spotifyLink }) => {
-  const classes = useStyles({ btnBackground, btnTextColor })
-  const [open, setOpen] = useState(false)
+const Buttons = ({
+  btnBackground,
+  btnTextColor,
+  justifyBtn,
+  spotifyLink,
+  ...props
+}) => {
+  const classes = useStyles({ btnBackground, btnTextColor, justifyBtn })
   return (
-    <Grid
-      item
-      xs={10}
-      md={mdWidth ?? 5}
-      container
-      justifyContent="space-evenly"
-    >
-      <Grid item xs={5} md={6} container justifyContent="center">
+    <Grid item xs={10} lg={5} container justify="space-evenly" {...props}>
+      <Grid item xs={6} container className={classes.boxBtn}>
         <Button
           className={classes.button}
           variant="contained"
@@ -35,7 +34,7 @@ const Buttons = ({ btnBackground, btnTextColor, mdWidth, spotifyLink }) => {
           </Typography>
         </Button>
       </Grid>
-      <Grid item xs={5} md={6} container justifyContent="center">
+      <Grid item xs={6} container className={classes.boxBtn}>
         <Button
           className={classes.button}
           variant="contained"
@@ -56,11 +55,15 @@ const Buttons = ({ btnBackground, btnTextColor, mdWidth, spotifyLink }) => {
 }
 
 const useStyles = makeStyles((theme) => ({
+  boxBtn: { justifyContent: ({ justifyBtn }) => justifyBtn ?? 'center' },
   txtBtn: {
     padding: theme.spacing(2),
     letterSpacing: '0.05rem',
     fontWeight: weight.l,
     color: ({ btnTextColor }) => btnTextColor ?? colors.Tolopea,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: size.xs,
+    },
   },
   button: {
     backgroundColor: ({ btnBackground }) => btnBackground ?? colors.HotPink,

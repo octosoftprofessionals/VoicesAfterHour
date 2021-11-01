@@ -11,17 +11,32 @@ const PodcastItems = ({ month, podcasts }) => {
   const classes = useStyles()
 
   return (
-    <Grid className={classes.root}>
-      <Grid container className={classes.month}>
-        {month}
+    <Grid
+      item
+      container
+      justify="center"
+      direction="column"
+      alignItems="center"
+      className={classes.root}
+    >
+      <Grid item container alignItems="flex-start">
+        <Typography variant="h5" className={classes.month}>
+          {month}
+        </Typography>
       </Grid>
-      <Grid item className={classes.divCard}>
+      <Grid
+        item
+        container
+        justify="center"
+        alignItems="center"
+        className={classes.divCard}
+      >
         {podcasts.map(({ node }, i) => (
           <PodcastItem node={node} />
         ))}
       </Grid>
-      <Grid className={classes.viewAll}>
-        <Typography>View all {month}</Typography>
+      <Grid item container justify="center" className={classes.viewAll}>
+        <Typography>{`View all ${month}`}</Typography>
       </Grid>
     </Grid>
   )
@@ -29,25 +44,17 @@ const PodcastItems = ({ month, podcasts }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
     rowGap: theme.spacing(8),
   },
   month: {
     color: colors.ColumbiaBlue,
-    fontSize: '1.7rem',
     textTransform: 'uppercase',
     fontWeight: 'bolder',
   },
   divCard: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     rowGap: theme.spacing(6),
   },
   viewAll: {
-    display: 'flex',
-    justifyContent: 'center',
     color: colors.HotPink,
     textDecoration: 'underline',
   },

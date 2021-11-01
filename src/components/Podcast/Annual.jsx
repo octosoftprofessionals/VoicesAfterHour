@@ -6,28 +6,28 @@ import { makeStyles } from '@material-ui/core/styles'
 import { colors } from '@Styles'
 
 import PodcastItems from './PodcastItems'
+import LoadMoreBtn from './LoadMoreBtn'
 
 const PodcastsAnnual = ({ year, annualPodcasts }) => {
   const classes = useStyles()
   return (
-    <Grid container className={classes.root}>
-      <div className={classes.year}>{year}</div>
+    <Grid item container direction="column" className={classes.root}>
+      <Grid item className={classes.year}>
+        {year}
+      </Grid>
       {annualPodcasts.map((monthsPodcasts, i) =>
         monthsPodcasts.map(({ month, podcasts }) => (
           <PodcastItems month={month} podcasts={podcasts} />
         ))
       )}
+      <LoadMoreBtn />
     </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
     rowGap: theme.spacing(2),
-    alignItems: 'flex-start',
-    alignContent: 'center',
   },
   year: {
     color: colors.HotPink,
