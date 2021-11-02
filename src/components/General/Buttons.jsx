@@ -50,7 +50,7 @@ const Buttons = ({ btnBackground, btnTextColor, mdWidth, spotifyLink }) => {
           </Typography>
         </Button>
       </Grid>
-      <Iframe spotifyLink={spotifyLink} />
+      {spotifyLink && <Iframe spotifyLink={spotifyLink} />}
     </Grid>
   )
 }
