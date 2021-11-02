@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Grid, Typography, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+
+import Iframe from './Iframe'
 
 import YouTube from '@Assets/youtubeIcon.svg'
 import Spotify from '@Assets/spotifyIcon.svg'
 import { colors, shadows, weight } from '@Styles'
 
-const Buttons = ({ btnBackground, btnTextColor, mdWidth }) => {
+const Buttons = ({ btnBackground, btnTextColor, mdWidth, spotifyLink }) => {
   const classes = useStyles({ btnBackground, btnTextColor })
+  const [open, setOpen] = useState(false)
   return (
-    <Grid item xs={10} md={mdWidth ?? 5} container justifyContent="space-evenly">
+    <Grid
+      item
+      xs={10}
+      md={mdWidth ?? 5}
+      container
+      justifyContent="space-evenly"
+    >
       <Grid item xs={5} md={6} container justifyContent="center">
         <Button
           className={classes.button}
@@ -41,6 +50,7 @@ const Buttons = ({ btnBackground, btnTextColor, mdWidth }) => {
           </Typography>
         </Button>
       </Grid>
+      {spotifyLink && <Iframe spotifyLink={spotifyLink} />}
     </Grid>
   )
 }

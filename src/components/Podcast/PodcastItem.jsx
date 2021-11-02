@@ -8,7 +8,6 @@ import { colors, shadows } from '@Styles'
 
 const PodcastItem = ({ node }) => {
   const classes = useStyles()
-  console.log('node :>> ', node)
   return (
     <Grid container xs={12} className={classes.root}>
       <Grid item xs={3} className={classes.cardGrid}>
@@ -31,6 +30,7 @@ const PodcastItem = ({ node }) => {
           btnTextColor={colors.HotPink}
           mdWidth={8}
           className={classes.buttons}
+          spotifyLink={node.spotifyUrl}
         />
       </Grid>
     </Grid>
