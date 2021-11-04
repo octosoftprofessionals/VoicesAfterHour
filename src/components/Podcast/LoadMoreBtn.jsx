@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   txtBtn: {
     padding: theme.spacing(2),
     letterSpacing: '0.05rem',
-    fontWeight: weight.l,
+    fontWeight: 'bold',
     color: ({ btnTextColor }) => btnTextColor ?? colors.Tolopea,
   },
   button: {

@@ -19,15 +19,7 @@ const Podcast = ({ data }) => {
   return (
     <MainGrid>
       <TitlePage title="Podcast" showText />
-      <Grid
-        container
-        xs={12}
-        sm={12}
-        justify={'center'}
-        className={classes.root}
-      >
-        <PodcastContainer podcasts={podcastsPerYearList(podcasts)} />
-      </Grid>
+      <PodcastContainer podcasts={podcastsPerYearList(podcasts)} />
     </MainGrid>
   )
 }

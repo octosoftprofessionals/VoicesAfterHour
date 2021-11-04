@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 
 import { Grid, Typography, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import Skeleton from '@material-ui/lab/Skeleton'
 
-import Iframe from './Iframe'
+import IframeSpotify from './Iframe'
 
 import YouTube from '@Assets/youtubeIcon.svg'
 import Spotify from '@Assets/spotifyIcon.svg'
@@ -13,13 +14,37 @@ const Buttons = ({
   btnBackground,
   btnTextColor,
   justifyBtn,
+  displayBtn,
+  youtubeLink,
   spotifyLink,
+  textBtn = [],
   ...props
 }) => {
-  const classes = useStyles({ btnBackground, btnTextColor, justifyBtn })
+  const classes = useStyles({
+    btnBackground,
+    btnTextColor,
+    justifyBtn,
+    displayBtn,
+  })
+  const [spotify, setSpotify] = useState(false)
+  const handleOpen = () => {
+    setSpotify(!spotify)
+  }
   return (
-    <Grid item xs={10} lg={5} container justify="space-evenly" {...props}>
-      <Grid item xs={6} container className={classes.boxBtn}>
+    <Grid
+      item
+      container
+      justify="space-evenly"
+      className={classes.root}
+      {...props}
+    >
+      <Grid
+        item
+        xs={6}
+        container
+        alignItems="center"
+        className={classes.boxBtn}
+      >
         <Button
           className={classes.button}
           variant="contained"
@@ -30,34 +55,63 @@ const Buttons = ({
             color="textPrimary"
             className={classes.txtBtn}
           >
-            {'VIEW ON YOUTUBE'}
+            {textBtn[0] ?? 'VIEW ON YOUTUBE'}
           </Typography>
         </Button>
       </Grid>
-      <Grid item xs={6} container className={classes.boxBtn}>
-        <Button
-          className={classes.button}
-          variant="contained"
-          startIcon={<Spotify />}
-        >
-          <Typography
-            variant="button"
-            color="textPrimary"
-            className={classes.txtBtn}
+      <Grid
+        item
+        xs={6}
+        container
+        alignItems="center"
+        className={classes.boxBtn}
+      >
+        {spotify ? (
+          spotifyLink && (
+            <Grid item className={classes.boxIframe}>
+              <Skeleton
+                variant="rect"
+                width={'100%'}
+                height={80}
+                className={classes.skeleton}
+              />
+              <IframeSpotify spotifyLink={spotifyLink} setOpen={handleOpen} />
+            </Grid>
+          )
+        ) : (
+          <Button
+            className={classes.button}
+            variant="contained"
+            startIcon={<Spotify />}
+            onClick={() => handleOpen()}
           >
-            {'LISTEN ON SPOTIFY'}
-          </Typography>
-        </Button>
+            <Typography
+              variant="button"
+              color="textPrimary"
+              className={classes.txtBtn}
+            >
+              {textBtn[1] ?? 'LISTEN ON SPOTIFY'}
+            </Typography>
+          </Button>
+        )}
       </Grid>
-      {spotifyLink && <Iframe spotifyLink={spotifyLink} />}
     </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
-  boxBtn: { justifyContent: ({ justifyBtn }) => justifyBtn ?? 'center' },
+  root: {},
+  boxBtn: {
+    justifyContent: ({ justifyBtn }) => justifyBtn ?? 'center',
+    position: 'relative',
+  },
+  boxIframe: {
+    borderRadius: theme.spacing(1),
+    width: '100%',
+  },
+  skeleton: { position: 'absolute', borderRadius: 4, width: '100%', zIndex: 1 },
   txtBtn: {
-    padding: theme.spacing(2),
+    padding: 0,
     letterSpacing: '0.05rem',
     fontWeight: weight.l,
     color: ({ btnTextColor }) => btnTextColor ?? colors.Tolopea,
@@ -69,6 +123,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: ({ btnBackground }) => btnBackground ?? colors.HotPink,
     boxShadow: shadows.boxShadow4,
     borderRadius: theme.spacing(2),
+    padding: theme.spacing(2, 6.5),
   },
 }))
 

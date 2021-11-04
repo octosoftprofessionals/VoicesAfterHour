@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 
 import { colors } from '@Styles'
 
 import PodcastItem from './PodcastItem'
 
-const PodcastItems = ({ month, podcasts }) => {
+const MonthsPodcastsItems = ({ month, podcasts }) => {
   const classes = useStyles()
 
   return (
@@ -16,28 +16,24 @@ const PodcastItems = ({ month, podcasts }) => {
       container
       justify="center"
       direction="column"
-      alignItems="center"
       className={classes.root}
     >
-      <Grid item container alignItems="flex-start">
+      <Grid container alignItems="flex-start">
         <Typography variant="h5" className={classes.month}>
           {month}
         </Typography>
       </Grid>
-      <Grid
-        item
-        container
-        justify="center"
-        alignItems="center"
-        className={classes.divCard}
-      >
+      <Grid container className={classes.divCard}>
         {podcasts.map(({ node }, i) => (
           <PodcastItem node={node} />
         ))}
       </Grid>
-      <Grid item container justify="center" className={classes.viewAll}>
-        <Typography>{`View all ${month}`}</Typography>
-      </Grid>
+      <Button variant="text">
+        <Typography
+          variant="h6"
+          className={classes.viewAll}
+        >{`View all ${month}`}</Typography>
+      </Button>
     </Grid>
   )
 }
@@ -57,7 +53,10 @@ const useStyles = makeStyles((theme) => ({
   viewAll: {
     color: colors.HotPink,
     textDecoration: 'underline',
+    textTransform: 'capitalize',
+    letterSpacing: '0.05rem',
+    fontWeight: 'bold',
   },
 }))
 
-export default PodcastItems
+export default MonthsPodcastsItems

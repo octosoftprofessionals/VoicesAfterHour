@@ -30,9 +30,7 @@ const submitForm = (formName, params) => {
 const monthList = (podcasts, year) => {
   const annualPodcasts = podcasts.filter(({ node }) => {
     let yearFull = new Date(node.creationDate).getFullYear()
-    if (yearFull === year) {
-      return true
-    }
+    return yearFull === year
   })
   const setIndexMonth = new Set()
   const months = [
@@ -61,9 +59,7 @@ const monthList = (podcasts, year) => {
       podcasts: annualPodcasts
         .filter(({ node }) => {
           let indexMonth = new Date(node.creationDate).getMonth()
-          if (indexMonth === value) {
-            return true
-          }
+          return indexMonth === value
         })
         .reverse(),
     })

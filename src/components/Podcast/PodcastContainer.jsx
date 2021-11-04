@@ -5,18 +5,23 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { colors } from '@Styles'
 
-import Annual from './Annual'
+import AnnualsPodcastsItems from './AnnualsPodcastsItems'
 
 const PodcastContainer = ({ podcasts }) => {
-  console.log('podcasts :>> ', podcasts)
   const classes = useStyles()
   return (
-    <Grid container justify="center" className={classes.root}>
-      <Grid item xs={12} sm={9} container direction="column" justify="center">
-        {podcasts.map(({ years, annualPodcasts }) => (
-          <Annual year={years} annualPodcasts={annualPodcasts} />
-        ))}
-      </Grid>
+    <Grid
+      item
+      xs={12}
+      sm={10}
+      container
+      direction="column"
+      justify="center"
+      className={classes.root}
+    >
+      {podcasts.map(({ years, annualPodcasts }) => (
+        <AnnualsPodcastsItems year={years} annualPodcasts={annualPodcasts} />
+      ))}
     </Grid>
   )
 }

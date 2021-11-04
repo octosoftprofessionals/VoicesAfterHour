@@ -1,23 +1,23 @@
 import React from 'react'
 
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { colors } from '@Styles'
 
-import PodcastItems from './PodcastItems'
+import MonthsPodcastsItems from './MonthsPodcastsItems'
 import LoadMoreBtn from './LoadMoreBtn'
 
-const PodcastsAnnual = ({ year, annualPodcasts }) => {
+const AnnualsPodcastsItems = ({ year, annualPodcasts }) => {
   const classes = useStyles()
   return (
     <Grid item container direction="column" className={classes.root}>
-      <Grid item className={classes.year}>
+      <Typography variant="h4" className={classes.year}>
         {year}
-      </Grid>
+      </Typography>
       {annualPodcasts.map((monthsPodcasts, i) =>
         monthsPodcasts.map(({ month, podcasts }) => (
-          <PodcastItems month={month} podcasts={podcasts} />
+          <MonthsPodcastsItems month={month} podcasts={podcasts} />
         ))
       )}
       <LoadMoreBtn />
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
   year: {
     color: colors.HotPink,
-    fontSize: '30px',
     fontWeight: 'bold',
+    letterSpacing: '0.05rem',
   },
 }))
 
-export default PodcastsAnnual
+export default AnnualsPodcastsItems

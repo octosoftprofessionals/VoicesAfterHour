@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined'
-import { IconButton } from '@material-ui/core'
+import { CancelOutlined } from '@material-ui/icons'
+import { Grid, IconButton } from '@material-ui/core'
 
-const Iframe = ({ spotifyLink, ...props }) => {
+const IframeSpotify = ({ spotifyLink, setOpen, ...props }) => {
   const classes = useStyles()
 
   const expReg = new RegExp('open.spotify.com/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)')
@@ -11,27 +11,23 @@ const Iframe = ({ spotifyLink, ...props }) => {
 
   const trackRef = `${match[1]}/${match[2]}`
   return (
-    <div className={classes.root}>
+    <Grid container className={classes.root}>
       <iframe
         src={`https://open.spotify.com/embed/${trackRef}`}
-        className={
-          match[1] === 'playlist' ? classes.cardMediaL : classes.cardMediaS
-        }
+        className={classes.cardMediaS}
         {...props}
       />
-      <IconButton className={classes.closeButton}>
-        <CancelOutlinedIcon />
+      <IconButton className={classes.closeButton} onClick={setOpen}>
+        <CancelOutlined className={classes.icon} />
       </IconButton>
-    </div>
+    </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'flex-end',
-    alignItems: 'flex-start',
+    position: 'relative',
+    zIndex: 2,
     flex: 1,
   },
   cardMediaS: {
@@ -41,18 +37,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     borderRadius: 6,
   },
-  cardMediaL: {
-    height: 380,
-    borderRadius: 6,
-  },
-  closeButton: {
-    background: 'none',
-    borderStyle: 'none',
-    color: 'white',
-    width: 24,
-    height: 24,
-    display: 'contents',
-  },
+  closeButton: { position: 'absolute', top: -12, right: -24, padding: 0 },
+  icon: { color: theme.palette.common.white },
 }))
 
-export default Iframe
+export default IframeSpotify

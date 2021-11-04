@@ -12,23 +12,37 @@ const PodcastItem = ({ node }) => {
   return (
     <Grid
       item
+      xs={12}
       container
-      justify="space-between"
-      wrap="nowrap"
+      justify="space-evenly"
       className={classes.root}
     >
-      <Grid item xs={10} md={2} className={classes.boxImage}>
-        <CardMedia className={classes.media} image={node.coverImage.file.url} />
+      <Grid item xs={10} sm={2} container alignItems="center">
+        <div className={classes.boxImage}>
+          <CardMedia
+            className={classes.media}
+            image={node.coverImage.file.url}
+          />
+        </div>
       </Grid>
-      <Grid item xs={12} sm={10} className={classes.boxInfo}>
+
+      <Grid
+        item
+        xs={12}
+        sm={9}
+        container
+        direction="column"
+        justify="space-between"
+        className={classes.boxInfo}
+      >
         <Typography variant="h6" className={classes.textTitle}>
           {node.title}
         </Typography>
-        <Grid item xs={11}>
-          <Typography className={classes.textDescription}>
-            {node.description.description}
-          </Typography>
-        </Grid>
+
+        <Typography className={classes.textDescription}>
+          {node.description.description}
+        </Typography>
+
         <Buttons
           btnBackground={colors.Tolopea}
           btnTextColor={colors.HotPink}
@@ -36,9 +50,6 @@ const PodcastItem = ({ node }) => {
           spotifyLink={node.spotifyUrl}
           justify="space-between"
           justifyBtn="flex-start"
-          xs={12}
-          md={8}
-          lg={6}
         />
       </Grid>
     </Grid>
@@ -47,10 +58,11 @@ const PodcastItem = ({ node }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    padding: theme.spacing(6, 0),
+    minHeight: theme.spacing(54),
     backgroundColor: colors.MidnightBlue,
     borderRadius: theme.spacing(3),
     boxShadow: shadows.boxShadow5,
-    position: 'relative',
     [theme.breakpoints.down('sm')]: {
       flexWrap: 'wrap',
       justifyContent: 'center',
@@ -60,21 +72,16 @@ const useStyles = makeStyles((theme) => ({
   boxImage: {
     width: theme.spacing(56),
     height: theme.spacing(42),
-    [theme.breakpoints.down('sm')]: {
-      width: theme.spacing(56),
-      height: theme.spacing(42),
-    },
     borderRadius: 10,
     border: borders.border1,
     overflow: 'hidden',
-    margin: theme.spacing(6),
   },
   media: {
     height: '100%',
     width: '100%',
   },
 
-  boxInfo: { padding: theme.spacing(6, 0) },
+  boxInfo: { alignItems: 'stretch' },
   textTitle: {
     color: colors.HotPink,
     fontWeight: weight.xl,
@@ -86,14 +93,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '0.75rem',
   },
 
-  buttons: {
-    position: 'absolute',
-    bottom: 24,
-    [theme.breakpoints.down('sm')]: {
-      position: 'relative',
-      bottom: 0,
-    },
-  },
+  buttons: { width: '70%' },
 }))
 
 export default PodcastItem
