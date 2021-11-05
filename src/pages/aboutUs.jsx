@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '@Layout'
-import {AboutUs} from '@Components'
+import { AboutUs } from '@Components'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const AboutUsPage = () => {
@@ -32,11 +32,21 @@ const AboutUsPage = () => {
           }
         }
       }
+      allContentfulAboutUs {
+        edges {
+          node {
+            title
+            description {
+              description
+            }
+          }
+        }
+      }
     }
   `)
   return (
     <Layout>
-      <AboutUs data={data}/>
+      <AboutUs data={data} />
     </Layout>
   )
 }
