@@ -4,8 +4,8 @@ import { Grid, Typography, InputAdornment, IconButton } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Send } from '@material-ui/icons'
 
-import {PrimaryInput} from '@Components'
-import { colors } from '@Styles'
+import { PrimaryInput } from '@Components'
+import { colors, shadows } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +18,22 @@ const useStyles = makeStyles((theme) => ({
     '@global': {
       '.MuiFilledInput-root': {
         backgroundColor: 'rgb(73 118 171 / 49%)',
+      },
+      '.MuiFilledInput-adornedEnd': {
+        paddingRight: theme.spacing(1),
+      },
+      '.MuiFilledInput-root:hover': {
+        backgroundColor: colors.LightCyanSoft,
+      },
+      '.MuiInputBase-input': {
+        fontFamily: theme.typography.fontFamily[0],
+        color: colors.Tolopea,
+      },
+      '.MuiFilledInput-root.Mui-focused': {
+        backgroundColor: colors.LightCyanSoft,
+      },
+      '.MuiFilledInput-underline:after': {
+        borderBottom: `2px solid ${colors.HotPink}`,
       },
     },
   },

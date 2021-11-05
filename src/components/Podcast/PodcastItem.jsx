@@ -37,6 +37,7 @@ const PodcastItem = ({ node, ...props }) => {
             btnBackground={colors.Tolopea}
             btnTextColor={colors.HotPink}
             spotifyLink={node.spotifyUrl}
+            youtubeLink={node.youtubeUrl}
             className={classes.buttons}
             justify="space-between"
             justifyBtn={width === 'xs' ? 'center' : 'flex-start'}
