@@ -1,34 +1,24 @@
 import React from 'react'
 
-import { Grid, Typography, CardMedia } from '@material-ui/core'
+import { Grid, Typography, CardMedia, withWidth } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { Buttons } from '@Components'
 import { colors, shadows, borders, weight } from '@Styles'
 
-const PodcastItem = ({ node }) => {
+const PodcastItem = ({ node, ...props }) => {
   const classes = useStyles()
+  const { width } = props
 
   return (
-    <Grid
-      item
-      xs={12}
-      container
-      justify="space-evenly"
-      className={classes.root}
-    >
-      <Grid item xs={10} sm={2} container alignItems="center">
-        <div className={classes.boxImage}>
-          <CardMedia
-            className={classes.media}
-            image={node.coverImage.file.url}
-          />
-        </div>
+    <Grid item xs={12} container className={classes.root}>
+      <Grid item xs={11} sm={2} className={classes.boxImage}>
+        <CardMedia className={classes.media} image={node.coverImage.file.url} />
       </Grid>
 
       <Grid
         item
-        xs={12}
+        xs={11}
         sm={9}
         container
         direction="column"
@@ -43,14 +33,22 @@ const PodcastItem = ({ node }) => {
           {node.description.description}
         </Typography>
 
-        <Buttons
-          btnBackground={colors.Tolopea}
-          btnTextColor={colors.HotPink}
-          className={classes.buttons}
-          spotifyLink={node.spotifyUrl}
-          justify="space-between"
-          justifyBtn="flex-start"
-        />
+        <Grid container alignItems="center" className={classes.boxButtons}>
+          <Buttons
+            btnBackground={colors.Tolopea}
+            btnTextColor={colors.HotPink}
+            spotifyLink={node.spotifyUrl}
+            className={classes.buttons}
+            justify="space-between"
+            justifyBtn={width === 'xs' ? 'center' : 'flex-start'}
+            xs={12}
+            md={10}
+            smSpotifyBtn={9}
+            smYoutubeBtn={3}
+            xsSpotifyBtn={9}
+            textBtn={['VIEW', 'LISTEN']}
+          />
+        </Grid>
       </Grid>
     </Grid>
   )
@@ -63,18 +61,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: colors.MidnightBlue,
     borderRadius: theme.spacing(3),
     boxShadow: shadows.boxShadow5,
+    justifyContent: 'space-evenly',
     [theme.breakpoints.down('sm')]: {
-      flexWrap: 'wrap',
       justifyContent: 'center',
     },
   },
 
   boxImage: {
-    width: theme.spacing(56),
-    height: theme.spacing(42),
     borderRadius: 10,
     border: borders.border1,
     overflow: 'hidden',
+    minWidth: theme.spacing(56),
+    minHeight: theme.spacing(42),
   },
   media: {
     height: '100%',
@@ -92,8 +90,17 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     fontSize: '0.75rem',
   },
-
-  buttons: { width: '70%' },
+  boxButtons: {
+    marginTop: 10,
+  },
+  buttons: {
+    flexDirection: 'row',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 10,
+    },
+  },
 }))
 
-export default PodcastItem
+export default withWidth()(PodcastItem)

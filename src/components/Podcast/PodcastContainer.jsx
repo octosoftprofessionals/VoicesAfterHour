@@ -12,8 +12,7 @@ const PodcastContainer = ({ podcasts }) => {
   return (
     <Grid
       item
-      xs={12}
-      sm={10}
+      xs={9}
       container
       direction="column"
       justify="center"

@@ -21,7 +21,7 @@ const Podcast = ({ title, description, link, spotifyUrl }) => {
           </Link>
         </Typography>
       </Grid>
-      <Buttons spotifyLink={spotifyUrl} />
+      <Buttons spotifyLink={spotifyUrl} xs={12} lg={5} linkHome={'/podcast'} />
     </Grid>
   )
 }

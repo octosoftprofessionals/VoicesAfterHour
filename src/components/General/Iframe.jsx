@@ -1,7 +1,10 @@
 import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
 import { CancelOutlined } from '@material-ui/icons'
-import { Grid, IconButton } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
+
+import { colors, shadows } from '@Styles'
 
 const IframeSpotify = ({ spotifyLink, setOpen, ...props }) => {
   const classes = useStyles()
@@ -11,16 +14,17 @@ const IframeSpotify = ({ spotifyLink, setOpen, ...props }) => {
 
   const trackRef = `${match[1]}/${match[2]}`
   return (
-    <Grid container className={classes.root}>
+    <div className={classes.root}>
       <iframe
         src={`https://open.spotify.com/embed/${trackRef}`}
         className={classes.cardMediaS}
         {...props}
       />
+
       <IconButton className={classes.closeButton} onClick={setOpen}>
         <CancelOutlined className={classes.icon} />
       </IconButton>
-    </Grid>
+    </div>
   )
 }
 
@@ -28,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     zIndex: 2,
-    flex: 1,
+    width: '100%',
   },
   cardMediaS: {
     width: '100%',
@@ -36,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
     border: 'none',
     overflow: 'hidden',
     borderRadius: 6,
+    boxShadow: shadows.boxShadow4,
   },
-  closeButton: { position: 'absolute', top: -12, right: -24, padding: 0 },
-  icon: { color: theme.palette.common.white },
+  closeButton: { position: 'absolute', top: -12, right: -32, padding: 0 },
+  icon: { color: colors.HotPink },
 }))
 
 export default IframeSpotify
