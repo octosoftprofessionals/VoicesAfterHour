@@ -1,37 +1,53 @@
 import React from 'react'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, CardMedia, withWidth } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { CardImage, Buttons } from '@Components'
-import { colors, shadows } from '@Styles'
+import { Buttons } from '@Components'
+import { colors, shadows, borders, weight } from '@Styles'
 
-const PodcastItem = ({ node }) => {
+const PodcastItem = ({ node, ...props }) => {
   const classes = useStyles()
+  const { width } = props
+
   return (
-    <Grid container xs={12} className={classes.root}>
-      <Grid item xs={3} className={classes.cardGrid}>
-        <CardImage
-          imageUrl={node.coverImage.file.url}
-          minHeight={'none'}
-          paddingBottom={'100%'}
-          classMediaCustom={classes.classMediaCustom}
-        />
+    <Grid item xs={12} container className={classes.root}>
+      <Grid item xs={11} sm={2} className={classes.boxImage}>
+        <CardMedia className={classes.media} image={node.coverImage.file.url} />
       </Grid>
-      <Grid item xs={9} className={classes.contentGrid}>
+      <Grid
+        item
+        xs={11}
+        sm={9}
+        container
+        direction="column"
+        justify="space-between"
+        className={classes.boxInfo}
+      >
         <Typography variant="h6" className={classes.textTitle}>
           {node.title}
         </Typography>
+
         <Typography className={classes.textDescription}>
           {node.description.description}
         </Typography>
-        <Buttons
-          btnBackground={colors.Tolopea}
-          btnTextColor={colors.HotPink}
-          mdWidth={8}
-          className={classes.buttons}
-          spotifyLink={node.spotifyUrl}
-        />
+
+        <Grid container alignItems="center" className={classes.boxButtons}>
+          <Buttons
+            btnBackground={colors.Tolopea}
+            btnTextColor={colors.HotPink}
+            spotifyLink={node.spotifyUrl}
+            className={classes.buttons}
+            justify="space-between"
+            justifyBtn={width === 'xs' ? 'center' : 'flex-start'}
+            xs={12}
+            md={10}
+            smSpotifyBtn={9}
+            smYoutubeBtn={3}
+            xsSpotifyBtn={9}
+            textBtn={['VIEW', 'LISTEN']}
+          />
+        </Grid>
       </Grid>
     </Grid>
   )
@@ -39,35 +55,51 @@ const PodcastItem = ({ node }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    padding: theme.spacing(6, 0),
+    minHeight: theme.spacing(54),
     backgroundColor: colors.MidnightBlue,
-    height: theme.spacing(54),
-    width: theme.spacing(258),
     borderRadius: theme.spacing(3),
     boxShadow: shadows.boxShadow5,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cardGrid: { maxHeight: 'inherit', display: 'flex', alignItems: 'center' },
-  contentGrid: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
+    },
   },
 
-  textTitle: { color: colors.HotPink },
+  boxImage: {
+    borderRadius: 10,
+    border: borders.border1,
+    overflow: 'hidden',
+    minWidth: theme.spacing(56),
+    minHeight: theme.spacing(42),
+  },
+  media: {
+    height: '100%',
+    width: '100%',
+  },
+
+  boxInfo: { alignItems: 'stretch' },
+  textTitle: {
+    color: colors.HotPink,
+    fontWeight: weight.xl,
+    letterSpacing: '0.05rem',
+  },
   textDescription: {
     color: colors.White,
-    fontSize: 'small',
-    height: '40%',
     overflow: 'auto',
+    fontSize: '0.75rem',
   },
-  classMediaCustom: {
-    width: theme.spacing(56),
-    height: theme.spacing(42),
-    borderRadius: '10px',
+  boxButtons: {
+    marginTop: 10,
+  },
+  buttons: {
+    flexDirection: 'row',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 10,
+    },
   },
 }))
 
-export default PodcastItem
+export default withWidth()(PodcastItem)

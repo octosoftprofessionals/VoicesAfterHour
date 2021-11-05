@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
-import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined'
+import { CancelOutlined } from '@material-ui/icons'
 import { IconButton } from '@material-ui/core'
 
-const Iframe = ({ spotifyLink, ...props }) => {
+import { colors, shadows } from '@Styles'
+
+const IframeSpotify = ({ spotifyLink, setOpen, ...props }) => {
   const classes = useStyles()
 
   const expReg = new RegExp('open.spotify.com/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)')
@@ -14,13 +17,12 @@ const Iframe = ({ spotifyLink, ...props }) => {
     <div className={classes.root}>
       <iframe
         src={`https://open.spotify.com/embed/${trackRef}`}
-        className={
-          match[1] === 'playlist' ? classes.cardMediaL : classes.cardMediaS
-        }
+        className={classes.cardMediaS}
         {...props}
       />
-      <IconButton className={classes.closeButton}>
-        <CancelOutlinedIcon />
+
+      <IconButton className={classes.closeButton} onClick={setOpen}>
+        <CancelOutlined className={classes.icon} />
       </IconButton>
     </div>
   )
@@ -28,11 +30,9 @@ const Iframe = ({ spotifyLink, ...props }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'flex-end',
-    alignItems: 'flex-start',
-    flex: 1,
+    position: 'relative',
+    zIndex: 2,
+    width: '100%',
   },
   cardMediaS: {
     width: '100%',
@@ -40,19 +40,10 @@ const useStyles = makeStyles((theme) => ({
     border: 'none',
     overflow: 'hidden',
     borderRadius: 6,
+    boxShadow: shadows.boxShadow4,
   },
-  cardMediaL: {
-    height: 380,
-    borderRadius: 6,
-  },
-  closeButton: {
-    background: 'none',
-    borderStyle: 'none',
-    color: 'white',
-    width: 24,
-    height: 24,
-    display: 'contents',
-  },
+  closeButton: { position: 'absolute', top: -12, right: -32, padding: 0 },
+  icon: { color: colors.HotPink },
 }))
 
-export default Iframe
+export default IframeSpotify
