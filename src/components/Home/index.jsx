@@ -1,6 +1,8 @@
 import React from 'react'
-import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 
+import { makeStyles } from '@material-ui/core/styles'
+
+import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 import { finedImgUrl } from '@Utils'
 
 import LandingBanner from './LandingBanner'
@@ -26,7 +28,7 @@ const Home = ({ data }) => {
       ],
     },
   } = data
-
+  const classes = useStyles()
   return (
     <MainGrid>
       <LandingBanner
@@ -51,12 +53,23 @@ const Home = ({ data }) => {
           youtubeLink={linkYoutube ?? '/'}
         />
 
-        <CardImage imageUrl={finedImgUrl(assets, 'ilus 2')} />
+        <CardImage
+          imageUrl={finedImgUrl(assets, 'ilus 2')}
+          className={classes.imgContainer}
+        />
 
         <Sponsors sponsors={sponsors} />
       </Scroll>
     </MainGrid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  imgContainer: {
+    width: '100%',
+    minHeight: '42vw',
+    backgroundSize: 'contain',
+  },
+}))
 
 export default Home
