@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, Grid, Typography } from '@material-ui/core'
@@ -9,7 +9,15 @@ import PodcastItem from './PodcastItem'
 
 const MonthsPodcastsItems = ({ month, podcasts }) => {
   const classes = useStyles()
+  const [loadMonths, setLoadMonths] = useState({ status: true, length: 3 })
 
+  const handleLoadMoreMonths = () => {
+    if (loadMonths.status) {
+      setLoadMonths({ status: false, length: podcasts.length })
+    } else {
+      setLoadMonths({ status: true, length: 3 })
+    }
+  }
   return (
     <Grid
       item
@@ -24,16 +32,17 @@ const MonthsPodcastsItems = ({ month, podcasts }) => {
         </Typography>
       </Grid>
       <Grid container className={classes.divCard}>
-        {podcasts.map(({ node }, i) => (
-          <PodcastItem node={node} />
+        {podcasts.slice(0, loadMonths.length).map(({ node }, i) => (
+          <PodcastItem node={node} key={`${node.title + i}`} />
         ))}
       </Grid>
-      <Button variant="text">
-        <Typography
-          variant="h6"
-          className={classes.viewAll}
-        >{`View all ${month}`}</Typography>
-      </Button>
+      <Grid item container justify="center">
+        <Button variant="text" onClick={handleLoadMoreMonths}>
+          <Typography variant="h6" className={classes.viewAll}>
+            {loadMonths.status ? `View all ${month}` : `Show less ${month}`}
+          </Typography>
+        </Button>
+      </Grid>
     </Grid>
   )
 }

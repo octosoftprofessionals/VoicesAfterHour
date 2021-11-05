@@ -3,18 +3,19 @@ import React from 'react'
 import { Grid, Typography, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, shadows, weight } from '@Styles'
+import { colors, shadows } from '@Styles'
 
-const LoadMoreBtn = () => {
-  const classes = useStyles()
+const LoadMoreBtn = ({ handleLoadMore, status }) => {
+  const classes = useStyles({ status })
+
   return (
-    <Grid container item justifyContent="space-evenly">
-      <Button className={classes.button} variant="contained">
-        <Typography
-          variant="button"
-          color="textPrimary"
-          className={classes.txtBtn}
-        >
+    <Grid container item justifyContent="center" className={classes.root}>
+      <Button
+        className={classes.button}
+        variant="contained"
+        onClick={handleLoadMore}
+      >
+        <Typography variant="button" className={classes.txtBtn}>
           Load more
         </Typography>
       </Button>
@@ -23,8 +24,9 @@ const LoadMoreBtn = () => {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: { display: ({ status }) => (status ? 'flex' : 'none') },
   txtBtn: {
-    padding: theme.spacing(2),
+    padding: 0,
     letterSpacing: '0.05rem',
     fontWeight: 'bold',
     color: ({ btnTextColor }) => btnTextColor ?? colors.Tolopea,
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(2),
     width: theme.spacing(48),
     height: theme.spacing(13),
+    padding: theme.spacing(2, 6.5),
   },
 }))
 

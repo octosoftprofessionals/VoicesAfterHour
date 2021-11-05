@@ -15,7 +15,6 @@ const PodcastItem = ({ node, ...props }) => {
       <Grid item xs={11} sm={2} className={classes.boxImage}>
         <CardMedia className={classes.media} image={node.coverImage.file.url} />
       </Grid>
-
       <Grid
         item
         xs={11}

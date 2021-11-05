@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -10,17 +10,34 @@ import LoadMoreBtn from './LoadMoreBtn'
 
 const AnnualsPodcastsItems = ({ year, annualPodcasts }) => {
   const classes = useStyles()
+
+  const [loadMonths, setLoadMonths] = useState({ status: true, length: 3 })
+
+  const handleLoadMore = () => {
+    if (loadMonths.status) {
+      setLoadMonths({ status: false, length: 12 })
+    } else {
+      setLoadMonths({ status: true, length: 3 })
+    }
+  }
+
   return (
     <Grid item container direction="column" className={classes.root}>
       <Typography variant="h4" className={classes.year}>
         {year}
       </Typography>
-      {annualPodcasts.map((monthsPodcasts, i) =>
-        monthsPodcasts.map(({ month, podcasts }) => (
-          <MonthsPodcastsItems month={month} podcasts={podcasts} />
-        ))
+      {annualPodcasts.map((monthsPodcasts) =>
+        monthsPodcasts
+          .slice(0, loadMonths.length)
+          .map(({ month, podcasts }, i) => (
+            <MonthsPodcastsItems
+              month={month}
+              podcasts={podcasts}
+              key={`${month + i}`}
+            />
+          ))
       )}
-      <LoadMoreBtn />
+      <LoadMoreBtn handleLoadMore={handleLoadMore} status={loadMonths.status} />
     </Grid>
   )
 }
