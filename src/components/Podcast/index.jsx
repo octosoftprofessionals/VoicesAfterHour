@@ -1,11 +1,6 @@
 import React from 'react'
 
-import { Grid } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-
-import { colors } from '@Styles'
 import { TitlePage, MainGrid } from '@Components'
-
 import { podcastsPerYearList } from '@Utils'
 
 import PodcastContainer from './PodcastContainer'
@@ -15,7 +10,6 @@ const Podcast = ({ data }) => {
     allContentfulPodcastPost: { edges: podcasts },
   } = data
 
-  const classes = useStyles()
   return (
     <MainGrid>
       <TitlePage title="Podcast" showText />
@@ -23,16 +17,5 @@ const Podcast = ({ data }) => {
     </MainGrid>
   )
 }
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    rowGap: theme.spacing(6),
-  },
-  title: {
-    fontFamily: theme.typography.fontFamily[1],
-    color: colors.ColumbiaBlue,
-    letterSpacing: '0.02rem',
-  },
-}))
 
 export default Podcast

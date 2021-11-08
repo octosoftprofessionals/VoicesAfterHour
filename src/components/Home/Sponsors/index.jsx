@@ -28,13 +28,12 @@ const Sponsors = ({ sponsors }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(20),
+    padding: theme.spacing(10, 0),
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
     color: colors.ColumbiaBlue,
     letterSpacing: '0.02rem',
-    paddingBottom: theme.spacing(6),
   },
 }))
 export default Sponsors

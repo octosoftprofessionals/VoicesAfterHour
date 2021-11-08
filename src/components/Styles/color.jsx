@@ -13,6 +13,7 @@ export const colors = {
   SummerSky: '#37ADD4',
   AliceBlue: '#E3F2FD',
   LightCyanSoft: '#e1ffff80',
+  MidnightBlueFooter: '#1D2178',
 }
 
 export const shadows = {

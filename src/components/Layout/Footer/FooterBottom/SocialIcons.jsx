@@ -33,52 +33,70 @@ const useStyles = makeStyles((theme) => ({
   },
   boxIcons: { rowGap: theme.spacing(2), columnGap: theme.spacing(2) },
   iconBehance: {
-    width: theme.spacing(8),
-    height: theme.spacing(8),
+    width: '1.5rem',
+    height: '1.5rem',
     fill: '#1d2178',
   },
   icon: {
-    width: '2rem',
-    height: '2rem',
+    width: '1.5rem',
+    height: '1.5rem',
   },
 }))
 
-const SocialIcons = () => {
+const SocialIcons = ({ socialMedia }) => {
   const classes = useStyles()
+
+  const [
+    {
+      Behance: behance,
+      Facebook: facebook,
+      GitHub: gitHub,
+      Instagram: instagram,
+      Twitter: twitter,
+      Youtube: youtube,
+    },
+  ] = socialMedia
 
   return (
     <Grid
       item
       xs={9}
-      sm={3}
+      sm={2}
       container
       justify="space-around"
       wrap="wrap"
       className={classes.boxIcons}
     >
-      <ItemSocial link={'https://www.facebook.com/octosoftprofessionals'}>
-        <Facebook className={classes.icon} />
-      </ItemSocial>
-
-      <ItemSocial>
-        <YouTube className={classes.icon} />
-      </ItemSocial>
-
-      <ItemSocial link="https://www.instagram.com/octosoftprofessionals/">
-        <Instagram className={classes.icon} />
-      </ItemSocial>
-
-      <ItemSocial link="https://twitter.com/octosoftprofessionals">
-        <Twitter className={classes.icon} />
-      </ItemSocial>
-
-      <ItemSocial link="https://www.behance.net/Octosoft">
-        <BehanceIcon className={classes.iconBehance} />
-      </ItemSocial>
-
-      <ItemSocial link="https://github.com/octosoftprofessionals">
-        <GitHub className={classes.icon} />
-      </ItemSocial>
+      {facebook && (
+        <ItemSocial link={facebook}>
+          <Facebook className={classes.icon} />
+        </ItemSocial>
+      )}
+      {youtube && (
+        <ItemSocial link={youtube}>
+          <YouTube className={classes.icon} />
+        </ItemSocial>
+      )}
+      {instagram && (
+        <ItemSocial link={instagram}>
+          <Instagram className={classes.icon} />
+        </ItemSocial>
+      )}
+      {twitter && (
+        <ItemSocial link={twitter}>
+          <Twitter className={classes.icon} />
+        </ItemSocial>
+      )}
+      {behance && (
+        <ItemSocial link={behance}>
+          <BehanceIcon className={classes.iconBehance} />
+        </ItemSocial>
+      )}
+      {gitHub && (
+        <ItemSocial link={gitHub}>
+          <GitHub className={classes.icon} />
+        </ItemSocial>
+      )}
     </Grid>
   )
 }

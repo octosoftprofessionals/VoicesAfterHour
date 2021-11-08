@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import addToMailchimp from 'gatsby-plugin-mailchimp'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import FooterTop from './FooterTop'
 import FooterBottom from './FooterBottom'
@@ -22,14 +23,44 @@ const Footer = () => {
     setEmail('')
   }
 
+  const footer = useStaticQuery(graphql`
+    query FooterQuery {
+      contentfulFooter {
+        mail
+        copyright
+        socialMedia {
+          Facebook
+          GitHub
+          Instagram
+          Twitch
+          Twitter
+          Youtube
+          Behance
+        }
+        topSocialMedia {
+          Facebook
+          Instagram
+          Twitter
+        }
+      }
+    }
+  `)
+  const { mail, copyright, socialMedia, topSocialMedia } =
+    footer.contentfulFooter
+
   return (
     <>
       <FooterTop
         handleSubmit={handleSubmit}
         email={email}
         setEmail={setEmail}
+        socialMedia={topSocialMedia}
       />
-      <FooterBottom />
+      <FooterBottom
+        mail={mail}
+        copyright={copyright}
+        socialMedia={socialMedia}
+      />
     </>
   )
 }

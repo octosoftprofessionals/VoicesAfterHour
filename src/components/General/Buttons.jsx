@@ -18,7 +18,7 @@ const Buttons = ({
   justifyBtn,
   displayBtn,
   paddingTxtBtn,
-  youtubeLink = '/',
+  youtubeLink,
   spotifyLink,
   xsSpotifyBtn,
   smSpotifyBtn,
