@@ -14,9 +14,10 @@ const useStyles = makeStyles((theme) => ({
   },
   linkText: {
     color: colors.HotPink,
+    letterSpacing: '0.05rem',
   },
   selector: {
-    fontWeight: weight.xl,
+    '& p': { fontWeight: weight.xl },
     '& p::after': {
       content: '""',
       width: '100%',
