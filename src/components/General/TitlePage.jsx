@@ -19,10 +19,9 @@ const TitlePage = ({ title, showText = false, text }) => {
           {title}
         </Typography>
       </Grid>
-
       {showText && (
-        <Grid container xs={10} item justify="center" alignContent="center">
-          <Grid item xs={12} md={4}>
+        <Grid container justify="center" alignContent="center">
+          <Grid item xs={12} md={7}>
             <Typography className={classes.description} variant="subtitle1">
               {text}
             </Typography>
@@ -36,7 +35,7 @@ const TitlePage = ({ title, showText = false, text }) => {
 const useStyles = makeStyles((theme) => ({
   root: {
     rowGap: theme.spacing(4),
-    padding: theme.spacing(4),
+    padding: theme.spacing(8),
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
