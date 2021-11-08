@@ -24,7 +24,7 @@ const LandingBanner = ({ description, imageUrl }) => {
             </Typography>
             <MicIcon className={classes.icon} />
           </Grid>
-          <Typography variant="h5" className={classes.description}>
+          <Typography variant="h6" className={classes.description}>
             {description}
           </Typography>
         </Grid>
@@ -39,7 +39,7 @@ const LandingBanner = ({ description, imageUrl }) => {
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(14),
     columnGap: theme.spacing(6),
     paddingBottom: theme.spacing(4),
   },
@@ -76,6 +76,10 @@ const useStyles = makeStyles((theme) => ({
     color: colors.HotPink,
     lineHeight: lineHeight.l,
     textShadow: `${shadows.textShadow1}, ${shadows.textShadow2}`,
+    fontSize: '4.5vw',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12.5vw',
+    },
   },
   description: {
     fontWeight: weight.m,

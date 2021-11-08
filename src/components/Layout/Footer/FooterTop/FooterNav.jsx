@@ -3,25 +3,15 @@ import { Link } from 'gatsby'
 
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Instagram, Twitter } from '@material-ui/icons'
+import { Instagram, Twitter, Facebook } from '@material-ui/icons'
 
-import Facebook from '@Assets/facebook.svg'
+// import Facebook from '@Assets/facebook.svg'
 
-const useStyles = makeStyles((theme) => ({
-  icon: { fontSize: '2rem', fill: theme.palette.common.white },
-  link: {
-    textDecoration: 'none',
-    display: 'flex',
-    minHeight: '2rem',
-    alignItems: 'center',
-  },
-  box: { columnGap: theme.spacing(4) },
-  boxIconFacebook: { width: 32, height: 32 },
-  containerLink: { rowGap: theme.spacing(4) },
-}))
-
-const FooterNav = () => {
+const FooterNav = ({ socialMedia }) => {
   const classes = useStyles()
+  const [{ Facebook: facebook, Instagram: instagram, Twitter: twitter }] =
+    socialMedia
+
   return (
     <Grid
       item
@@ -47,7 +37,7 @@ const FooterNav = () => {
             About Us
           </Typography>
         </Link>
-        <Link to={'/'} className={classes.link}>
+        <Link to={'/contactUs'} className={classes.link}>
           <Typography variant="body1" color="primary">
             Contact Us
           </Typography>
@@ -67,7 +57,7 @@ const FooterNav = () => {
         direction="column"
         className={classes.containerLink}
       >
-        <Link to={'/'} className={classes.link}>
+        <Link to={facebook} className={classes.link}>
           <Grid
             item
             container
@@ -76,20 +66,13 @@ const FooterNav = () => {
             wrap="wrap"
             className={classes.box}
           >
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              className={classes.boxIconFacebook}
-            >
-              <Facebook className={classes.icon} />
-            </Grid>
+            <Facebook className={classes.icon} />
             <Typography variant="body1" color="primary">
               Facebook
             </Typography>
           </Grid>
         </Link>
-        <Link to={'/'} className={classes.link}>
+        <Link to={twitter ?? '/'} className={classes.link}>
           <Grid
             item
             container
@@ -103,7 +86,7 @@ const FooterNav = () => {
             </Typography>
           </Grid>
         </Link>
-        <Link to={'/'} className={classes.link}>
+        <Link to={instagram} className={classes.link}>
           <Grid
             item
             container
@@ -121,5 +104,26 @@ const FooterNav = () => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  icon: { fontSize: '1.5rem', fill: theme.palette.common.white },
+  link: {
+    textDecoration: 'none',
+    display: 'flex',
+    minHeight: '1rem',
+    alignItems: 'center',
+  },
+  box: { columnGap: theme.spacing(4) },
+  boxIconFacebook: { width: '1rem', height: '1rem' },
+  containerLink: {
+    rowGap: theme.spacing(4),
+    '@global': {
+      '.MuiTypography-body1': {
+        fontSize: '0.9rem',
+        letterSpacing: '0.05rem',
+      },
+    },
+  },
+}))
 
 export default FooterNav

@@ -13,6 +13,7 @@ export const colors = {
   SummerSky: '#37ADD4',
   AliceBlue: '#E3F2FD',
   LightCyanSoft: '#e1ffff80',
+  MidnightBlueFooter: '#1D2178',
 }
 
 export const shadows = {
@@ -23,4 +24,8 @@ export const shadows = {
   boxShadow5: `-5px -5px 10px ${colors.MidnightBlue}, 5px 5px 15px ${colors.MidnightBlue}`,
   textShadow1: `-4px -4px 10px ${colors.HotPinkLight}`,
   textShadow2: `4px 4px 10px ${colors.HotPinkLight}`,
+}
+
+export const borders = {
+  border1: `1px solid ${colors.HotPink}`,
 }

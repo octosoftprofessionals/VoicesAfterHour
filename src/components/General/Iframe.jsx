@@ -1,21 +1,12 @@
 import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
+import { CancelOutlined } from '@material-ui/icons'
+import { IconButton } from '@material-ui/core'
 
-const useStyles = makeStyles((theme) => ({
-  cardMediaS: {
-    width: 300,
-    height: 80,
-    border: 'none',
-    overflow: 'hidden',
-    borderRadius: 20,
-  },
-  cardMediaL: {
-    height: 380,
-    borderRadius: 20,
-  },
-}))
+import { colors, shadows } from '@Styles'
 
-const Iframe = ({ spotifyLink, ...props }) => {
+const IframeSpotify = ({ spotifyLink, setOpen, ...props }) => {
   const classes = useStyles()
 
   const expReg = new RegExp('open.spotify.com/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)')
@@ -23,14 +14,36 @@ const Iframe = ({ spotifyLink, ...props }) => {
 
   const trackRef = `${match[1]}/${match[2]}`
   return (
-    <iframe
-      src={`https://open.spotify.com/embed/${trackRef}`}
-      className={
-        match[1] === 'playlist' ? classes.cardMediaL : classes.cardMediaS
-      }
-      {...props}
-    ></iframe>
+    <div className={classes.root}>
+      <iframe
+        src={`https://open.spotify.com/embed/${trackRef}`}
+        className={classes.cardMediaS}
+        {...props}
+      />
+
+      <IconButton className={classes.closeButton} onClick={setOpen}>
+        <CancelOutlined className={classes.icon} />
+      </IconButton>
+    </div>
   )
 }
 
-export default Iframe
+const useStyles = makeStyles((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 2,
+    width: '100%',
+  },
+  cardMediaS: {
+    width: '100%',
+    height: 80,
+    border: 'none',
+    overflow: 'hidden',
+    borderRadius: 6,
+    boxShadow: shadows.boxShadow4,
+  },
+  closeButton: { position: 'absolute', top: -12, right: -32, padding: 0 },
+  icon: { color: colors.HotPink },
+}))
+
+export default IframeSpotify

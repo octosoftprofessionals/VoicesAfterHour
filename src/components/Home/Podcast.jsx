@@ -6,8 +6,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import { colors } from '@Styles'
 import { Buttons } from '@Components'
 
-const Podcast = ({ title, description, link }) => {
+const Podcast = ({
+  title,
+  description,
+  link,
+  spotifyUrl,
+  spotifyLink,
+  youtubeLink,
+}) => {
   const classes = useStyles()
+
   return (
     <Grid item container justifyContent="center" className={classes.root}>
       <Grid item xs={10} md={8} container justifyContent="center">
@@ -21,7 +29,13 @@ const Podcast = ({ title, description, link }) => {
           </Link>
         </Typography>
       </Grid>
-      <Buttons />
+      <Buttons
+        spotifyLink={spotifyUrl}
+        xs={12}
+        lg={5}
+        linkHome={spotifyLink}
+        youtubeLink={youtubeLink}
+      />
     </Grid>
   )
 }

@@ -4,7 +4,7 @@ export const size = {
   l: '6rem',
   m: '',
   s: '',
-  xs: '',
+  xs: '0.8rem',
 }
 
 export const lineHeight = {

@@ -1,6 +1,8 @@
 import React from 'react'
-import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 
+import { makeStyles } from '@material-ui/core/styles'
+
+import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 import { finedImgUrl } from '@Utils'
 
 import LandingBanner from './LandingBanner'
@@ -11,21 +13,32 @@ const Home = ({ data }) => {
   const {
     allContentfulAsset: { edges: assets },
     allContentfulSponsors: { edges: sponsors },
+    allContentfulHome: {
+      edges: [
+        {
+          node: {
+            linkLearnMore,
+            channelSpotify: linkSpotify,
+            channelYoutube: linkYoutube,
+            aboutUs: { aboutUs: aboutUsDes },
+            landingText: { landingText: landingDes },
+            podcastDescription: { podcastDescription: podcastDes },
+          },
+        },
+      ],
+    },
   } = data
+  const classes = useStyles()
   return (
     <MainGrid>
       <LandingBanner
-        description={
-          'Amet enim irure qui sunt. Labore proident magna minim id dolor. Occaecat dolor officia dolor voluptate mollit labore eu voluptate. Esse irure sint et ipsum consectetur laborum dolor velit voluptate cupidatat anim dolor.Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est.'
-        }
+        description={`${landingDes}`}
         imageUrl={finedImgUrl(assets, 'ilus 1')}
       />
       <Scroll title="Scroll" href="home">
         <Banner
           title={'About Us'}
-          description={
-            'Amet enim irure qui sunt. Labore proident magna minim id dolor. Occaecat dolor officia dolor voluptate mollit labore eu voluptate. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est.'
-          }
+          description={`${aboutUsDes}`}
           textBtn={'Get to know us'}
           imageUrl={finedImgUrl(assets, 'ilus 3')}
           link={'/aboutUs'}
@@ -34,18 +47,29 @@ const Home = ({ data }) => {
 
         <Podcast
           title={'Podcast'}
-          description={
-            'Amet enim irure qui sunt. Labore proident magna minim id dolor. Occaecat dolor officia dolor voluptate mollit labore eu voluptate. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est. Ex mollit sint veniam esse. Nisi deserunt qui tempor officia quis reprehenderit esse est.'
-          }
-          link={'/'}
+          description={`${podcastDes}`}
+          link={linkLearnMore}
+          spotifyLink={linkSpotify ?? '/podcast'}
+          youtubeLink={linkYoutube ?? '/'}
         />
 
-        <CardImage imageUrl={finedImgUrl(assets, 'ilus 2')} />
+        <CardImage
+          imageUrl={finedImgUrl(assets, 'ilus 2')}
+          className={classes.imgContainer}
+        />
 
         <Sponsors sponsors={sponsors} />
       </Scroll>
     </MainGrid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  imgContainer: {
+    width: '100%',
+    minHeight: '42vw',
+    backgroundSize: 'contain',
+  },
+}))
 
 export default Home

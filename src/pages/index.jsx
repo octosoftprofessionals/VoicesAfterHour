@@ -7,6 +7,24 @@ import { useStaticQuery, graphql } from 'gatsby'
 const HomePage = () => {
   const data = useStaticQuery(graphql`
     query Home {
+      allContentfulHome {
+        edges {
+          node {
+            linkLearnMore
+            channelSpotify
+            channelYoutube
+            aboutUs {
+              aboutUs
+            }
+            landingText {
+              landingText
+            }
+            podcastDescription {
+              podcastDescription
+            }
+          }
+        }
+      }
       allContentfulAsset {
         edges {
           node {

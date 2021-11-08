@@ -9,8 +9,9 @@ import LogoVAH from '@Assets/Footer-VAH-icon.svg'
 import FormSubscribe from './FormSubscribe'
 import FooterNav from './FooterNav'
 
-const FooterTop = ({ handleSubmit, email, setEmail }) => {
+const FooterTop = ({ handleSubmit, email, setEmail, socialMedia }) => {
   const classes = useStyles()
+
   return (
     <Grid
       container
@@ -24,7 +25,9 @@ const FooterTop = ({ handleSubmit, email, setEmail }) => {
           <LogoVAH />
         </Link>
       </Grid>
-      <FooterNav />
+
+      <FooterNav socialMedia={socialMedia} />
+
       <FormSubscribe
         handleSubmit={handleSubmit}
         email={email}

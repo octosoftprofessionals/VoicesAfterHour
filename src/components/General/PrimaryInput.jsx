@@ -1,6 +1,9 @@
 import React from 'react'
+
 import { FormControl, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+
+import { colors, weight } from '@Styles'
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -25,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     },
     '& label.MuiInputLabel-shrink': {
       transform: 'translate(12px, 6px) scale(0.75)',
+      letterSpacing: '0.05rem',
+      color: ({ color }) => color ?? theme.palette.primary.contrastText,
     },
   },
 }))

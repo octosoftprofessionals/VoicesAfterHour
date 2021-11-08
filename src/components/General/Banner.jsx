@@ -76,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: ({ backgroundBtn }) => backgroundBtn ?? colors.AliceBlue,
     boxShadow: shadows.boxShadow2,
     borderRadius: theme.spacing(2),
+    padding: theme.spacing(3.25, 6.5),
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2.5),
   },
   txtBtn: {
-    padding: theme.spacing(2.5),
+    padding: 0,
     letterSpacing: '0.05rem',
     fontWeight: weight.l,
     color: colors.Tolopea,
