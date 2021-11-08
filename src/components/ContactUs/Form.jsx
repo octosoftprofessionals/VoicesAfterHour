@@ -39,9 +39,14 @@ const Contact = ({ imgUrl }) => {
   }
 
   return (
-    <form name="contact" onSubmit={handleSubmit} data-netlify="true">
+    <form
+      name="contact"
+      onSubmit={handleSubmit}
+      data-netlify="true"
+      className={classes.form}
+    >
       <input type="hidden" name="form-name" value="contact" />
-      <Grid container justify="center">
+      <Grid item xs={11} container justify="center">
         <Grid
           item
           container
@@ -49,12 +54,12 @@ const Contact = ({ imgUrl }) => {
           className={classes.root}
         >
           <Hidden smDown>
-            <Grid item sm={4} container>
+            <Grid item md={4} container>
               <div className={classes.img} />
             </Grid>
           </Hidden>
 
-          <Grid item xs={11} sm={7} container className={classes.boxForm}>
+          <Grid item xs={12} md={7} container className={classes.boxForm}>
             <Grid item xs={6} className={classes.gridItem}>
               <PrimaryInput
                 id="fullName"
@@ -127,9 +132,9 @@ const Contact = ({ imgUrl }) => {
             variant="contained"
             type="submit"
             className={classes.button}
-            endIcon={<Send />}
+            endIcon={<Send className={classes.icon} />}
           >
-            <Typography variant="subtitle1" className={classes.btnTxt}>
+            <Typography variant="button" className={classes.btnTxt}>
               Send
             </Typography>
           </Button>
@@ -147,6 +152,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
     },
   },
+  form: { display: 'flex', justifyContent: 'center' },
   boxForm: { rowGap: theme.spacing(4) },
   img: {
     width: '100%',
@@ -163,10 +169,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     backgroundColor: colors.HotPink,
     boxShadow: shadows.boxShadow4,
+    padding: theme.spacing(3.25, 6.5),
   },
   btnTxt: {
-    fontWeight: weight.m,
+    fontWeight: weight.l,
+    color: colors.MidnightBlue,
   },
+  icon: { fill: colors.MidnightBlue },
   '@global': {
     '.MuiFilledInput-root': {
       backgroundColor: colors.LightCyan,
