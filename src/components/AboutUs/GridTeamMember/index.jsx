@@ -25,14 +25,13 @@ const GridTeamMember = ({ members }) => {
             key={i}
           />
         ))}
-       
       </Grid>
     </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { padding: theme.spacing(20, 0) },
+  root: { padding: theme.spacing(6, 0, 20) },
   grid: { rowGap: theme.spacing(14), columnGap: theme.spacing(18) },
 }))
 
