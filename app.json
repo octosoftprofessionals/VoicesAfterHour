@@ -1,8 +1,20 @@
 {
-  "name": "Informacion Es Poder",
+  "name": "Voces After Hours",
   "description": "Gatsby starter for a Contentful project.",
-  "keywords": ["contentful", "gatsby", "static", "ssg"],
-  "repository": "git@github.com:obsidian-software-service/InformacionEsPoder.git",
+  "keywords": [
+    "voice",
+    "voces",
+    "after",
+    "hours",
+    "gatsby",
+    "contentful",
+    "starter",
+    "podcast",
+    "radio",
+    "obsidian",
+    "octosoft"
+  ],
+  "repository": "git@github.com:obsidian-software-service/VoicesAfterHours.git",
   "success_url": "/",
   "buildpacks": [
     {

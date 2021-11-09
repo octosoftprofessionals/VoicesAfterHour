@@ -35,13 +35,14 @@ const Podcast = ({
         lg={5}
         linkHome={spotifyLink}
         youtubeLink={youtubeLink}
+        className={classes.buttons}
       />
     </Grid>
   )
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { paddingBottom: theme.spacing(10) },
+  root: { paddingBottom: theme.spacing(20) },
   title: {
     fontFamily: theme.typography.fontFamily[1],
     textDecoration: 'underline',
@@ -54,6 +55,13 @@ const useStyles = makeStyles((theme) => ({
     color: colors.LightCyan,
     textAlign: 'center',
     paddingBottom: theme.spacing(10),
+  },
+  buttons: {
+    '@global': {
+      '.MuiButton-contained:hover': {
+        backgroundColor: colors.WildStrawberry,
+      },
+    },
   },
   link: {
     color: 'inherit',
