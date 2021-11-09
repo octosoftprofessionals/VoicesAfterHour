@@ -28,7 +28,7 @@ const Sponsors = ({ sponsors }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(10, 0),
+    padding: theme.spacing(20, 0, 30),
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],

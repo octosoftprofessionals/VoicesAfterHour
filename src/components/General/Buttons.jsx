@@ -36,8 +36,9 @@ const Buttons = ({
     paddingTxtBtn,
   })
   const [spotify, setSpotify] = useState(false)
+
   const handleOpen = () => {
-    setSpotify(!spotify)
+    if (!linkHome) setSpotify(!spotify)
   }
   return (
     <Grid

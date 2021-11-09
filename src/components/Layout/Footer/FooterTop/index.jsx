@@ -39,7 +39,7 @@ const FooterTop = ({ handleSubmit, email, setEmail, socialMedia }) => {
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    padding: theme.spacing(2, 4),
+    padding: theme.spacing(2, 0),
     background: colors.MidnightBlue,
     minHeight: `${theme.spacing(7)}vh`,
     rowGap: theme.spacing(6),

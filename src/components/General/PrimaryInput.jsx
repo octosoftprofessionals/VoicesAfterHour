@@ -3,7 +3,19 @@ import React from 'react'
 import { FormControl, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { colors, weight } from '@Styles'
+const PrimaryInput = ({ className, color, ...otherProps }) => {
+  const classes = useStyles({ color })
+  return (
+    <FormControl variant="filled" size="small" fullWidth>
+      <TextField
+        className={`${classes.input} ${className}`}
+        variant="filled"
+        s
+        {...otherProps}
+      />
+    </FormControl>
+  )
+}
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -33,19 +45,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
-
-const PrimaryInput = ({ className, color, ...otherProps }) => {
-  const classes = useStyles({ color })
-  return (
-    <FormControl variant="filled" size="small" fullWidth>
-      <TextField
-        className={`${classes.input} ${className}`}
-        variant="filled"
-        s
-        {...otherProps}
-      />
-    </FormControl>
-  )
-}
 
 export default PrimaryInput

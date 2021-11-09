@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 import { finedImgUrl } from '@Utils'
+import { colors } from '@Styles'
 
 import LandingBanner from './LandingBanner'
 import Sponsors from './Sponsors'
@@ -67,7 +68,10 @@ const Home = ({ data }) => {
 const useStyles = makeStyles((theme) => ({
   imgContainer: {
     width: '100%',
-    minHeight: '42vw',
+    minHeight: '25vw',
+    [theme.breakpoints.down('xs')]: {
+      minHeight: '40vw',
+    },
     backgroundSize: 'contain',
   },
 }))

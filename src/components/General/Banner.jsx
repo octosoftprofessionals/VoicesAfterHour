@@ -11,11 +11,17 @@ const Banner = ({
   description,
   textBtn,
   backgroundBtn,
+  backgroundBtnHov,
   imageUrl,
   right,
   link,
 }) => {
-  const classes = useStyles({ imageUrl, right, backgroundBtn })
+  const classes = useStyles({
+    imageUrl,
+    right,
+    backgroundBtn,
+    backgroundBtnHov,
+  })
   return (
     <Grid
       item
@@ -62,7 +68,7 @@ const Banner = ({
 const useStyles = makeStyles((theme) => ({
   root: {
     flexDirection: ({ right }) => (right ? 'row-reverse' : 'row'),
-    paddingBottom: theme.spacing(30),
+    paddingBottom: theme.spacing(20),
   },
   box: { rowGap: theme.spacing(2.25) },
   image: {
@@ -77,6 +83,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: shadows.boxShadow2,
     borderRadius: theme.spacing(2),
     padding: theme.spacing(3.25, 6.5),
+    '&:hover': {
+      backgroundColor: ({ backgroundBtnHov }) =>
+        backgroundBtnHov ?? colors.AliceBlueSoft,
+    },
   },
   title: {
     fontFamily: theme.typography.fontFamily[1],
