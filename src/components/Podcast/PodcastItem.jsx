@@ -35,6 +35,7 @@ const PodcastItem = ({ node, ...props }) => {
         <Grid container alignItems="center" className={classes.boxButtons}>
           <Buttons
             btnBackground={colors.Tolopea}
+            btnBackgroundHov={colors.CherryPie}
             btnTextColor={colors.HotPink}
             spotifyLink={node.spotifyUrl}
             youtubeLink={node.youtubeUrl}
