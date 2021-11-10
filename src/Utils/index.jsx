@@ -81,7 +81,7 @@ const podcastsPerYearList = (podcasts) => {
   yearsList.forEach((value) => {
     res.push({
       years: value,
-      annualPodcasts: [monthList(podcasts, value)],
+      annualPodcasts: monthList(podcasts, value),
     })
   })
   return res

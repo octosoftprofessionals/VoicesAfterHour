@@ -18,6 +18,7 @@ export const colors = {
   WildStrawberry: '#FF42A1',
   ShipCoveSoft: '#758FAF6B',
   ShipCoveSoftHov: '#758FAF99',
+  CherryPie: '#392D4E',
 }
 
 export const shadows = {
