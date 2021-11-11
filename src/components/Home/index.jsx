@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { Banner, CardImage, Scroll, MainGrid } from '@Components'
 import { finedImgUrl } from '@Utils'
-import { colors } from '@Styles'
 
 import LandingBanner from './LandingBanner'
 import Sponsors from './Sponsors'

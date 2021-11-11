@@ -12,10 +12,9 @@ const ContentHTML = ({ content }) => {
     <Grid
       item
       xs={10}
-      md={6}
+      md={7}
       container
       justify="center"
-      alignItems="center"
       className={classes.box}
     >
       <div
@@ -30,26 +29,23 @@ const ContentHTML = ({ content }) => {
 const useStyle = makeStyles((theme) => ({
   box: { marginBottom: theme.spacing(20) },
   content: {
-    color: theme.palette.common.white,
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'column',
     alignItems: 'stretch',
-    flex: 1,
     gap: 20,
     color: colors.ColumbiaBlue,
+    wordBreak: 'break-word',
     '@global': {
       b: { color: 'inherit', letterSpacing: '0.05rem' },
       h1: {
-        display: 'flex',
-        flex: 1,
         marginBlock: 0,
         color: 'inherit',
         letterSpacing: '0.05rem',
+        textShadow: shadows.boxShadow3,
+        '& b': { letterSpacing: '0.08rem' },
       },
       h2: {
-        display: 'flex',
-        flex: 1,
         marginBlock: 0,
         color: 'inherit',
         letterSpacing: '0.08rem',
@@ -57,15 +53,11 @@ const useStyle = makeStyles((theme) => ({
         '& b': { letterSpacing: '0.08rem' },
       },
       h3: {
-        display: 'flex',
-        flex: 1,
         marginBlock: 0,
         color: 'inherit',
         letterSpacing: '0.05rem',
       },
       h4: {
-        display: 'flex',
-        flex: 1,
         marginBlock: 0,
         color: 'inherit',
         letterSpacing: '0.05rem',
@@ -80,6 +72,7 @@ const useStyle = makeStyles((theme) => ({
         color: colors.WildStrawberry,
         letterSpacing: '0.10rem',
         fontWeight: weight.l,
+        wordBreak: 'break-word',
         '&:hover': {
           color: colors.Razzmatazz,
         },
