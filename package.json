@@ -2,12 +2,14 @@
   "name": "voces-after-hours",
   "description": "Website dedicated to the creation of podcast and radio content",
   "private": true,
-  "version": "0.1.7",
+  "version": "0.2.0",
   "author": "Roger Coverzola Bogado <roger.bogado.coverzola@gmail.com> & Agustina Ruidiaz <agusruidiaz@hotmail.com> & Carlos Benetti <benetticarlos1@gmail.com>",
   "bugs": {
     "url": "git@github.com:obsidian-software-service/VoicesAfterHours.git"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "15.6.2",
+    "@contentful/rich-text-react-renderer": "15.6.2",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
