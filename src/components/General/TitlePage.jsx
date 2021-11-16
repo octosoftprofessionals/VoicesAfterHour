@@ -10,7 +10,7 @@ const TitlePage = ({ title, showText = false, text }) => {
     <Grid
       item
       container
-      justify="center"
+      justifyContent="center"
       alignContent="center"
       className={classes.root}
     >
@@ -20,7 +20,7 @@ const TitlePage = ({ title, showText = false, text }) => {
         </Typography>
       </Grid>
       {showText && (
-        <Grid container justify="center" alignContent="center">
+        <Grid container justifyContent="center" alignContent="center">
           <Grid item xs={12} md={7}>
             <Typography className={classes.description} variant="subtitle1">
               {text}

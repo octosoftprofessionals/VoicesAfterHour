@@ -21,7 +21,7 @@ const PodcastItem = ({ node, ...props }) => {
         sm={9}
         container
         direction="column"
-        justify="space-between"
+        justifyContent="space-between"
         className={classes.boxInfo}
       >
         <Typography variant="h6" className={classes.textTitle}>
@@ -40,7 +40,7 @@ const PodcastItem = ({ node, ...props }) => {
             spotifyLink={node.spotifyUrl}
             youtubeLink={node.youtubeUrl}
             className={classes.buttons}
-            justify="space-between"
+            justifyContent="space-between"
             justifyBtn={width === 'xs' ? 'center' : 'flex-start'}
             xs={12}
             md={10}
