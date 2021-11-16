@@ -19,6 +19,7 @@ export const colors = {
   ShipCoveSoft: '#758FAF6B',
   ShipCoveSoftHov: '#758FAF99',
   CherryPie: '#392D4E',
+  HotPinkLink: '#FEB5D9',
 }
 
 export const shadows = {

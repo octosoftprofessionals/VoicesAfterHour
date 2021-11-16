@@ -10,7 +10,6 @@ const PrimaryInput = ({ className, color, ...otherProps }) => {
       <TextField
         className={`${classes.input} ${className}`}
         variant="filled"
-        s
         {...otherProps}
       />
     </FormControl>
