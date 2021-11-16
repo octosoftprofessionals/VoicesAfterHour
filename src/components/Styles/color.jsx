@@ -12,8 +12,14 @@ export const colors = {
   Black: '#000000',
   SummerSky: '#37ADD4',
   AliceBlue: '#E3F2FD',
+  AliceBlueSoft: '#E0F3FFD4',
   LightCyanSoft: '#e1ffff80',
   MidnightBlueFooter: '#1D2178',
+  WildStrawberry: '#FF42A1',
+  ShipCoveSoft: '#758FAF6B',
+  ShipCoveSoftHov: '#758FAF99',
+  CherryPie: '#392D4E',
+  HotPinkLink: '#FEB5D9',
 }
 
 export const shadows = {

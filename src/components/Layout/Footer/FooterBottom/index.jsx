@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   bottomBar: {
     background: colors.MidnightBlueFooter,
     color: theme.palette.common.white,
-    padding: theme.spacing(2),
+    padding: theme.spacing(2, 0),
     minHeight: `${theme.spacing(3)}vh`,
     rowGap: theme.spacing(4),
     columnGap: theme.spacing(4),

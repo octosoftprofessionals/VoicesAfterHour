@@ -14,6 +14,7 @@ import { colors, shadows, weight, size } from '@Styles'
 
 const Buttons = ({
   btnBackground,
+  btnBackgroundHov,
   btnTextColor,
   justifyBtn,
   displayBtn,
@@ -30,14 +31,16 @@ const Buttons = ({
 }) => {
   const classes = useStyles({
     btnBackground,
+    btnBackgroundHov,
     btnTextColor,
     justifyBtn,
     displayBtn,
     paddingTxtBtn,
   })
   const [spotify, setSpotify] = useState(false)
+
   const handleOpen = () => {
-    setSpotify(!spotify)
+    if (!linkHome) setSpotify(!spotify)
   }
   return (
     <Grid
@@ -126,7 +129,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  root: {},
   boxBtn: {
     justifyContent: ({ justifyBtn }) => justifyBtn ?? 'center',
     position: 'relative',
@@ -150,6 +152,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: shadows.boxShadow4,
     borderRadius: theme.spacing(2),
     padding: theme.spacing(2, 6.5),
+    '&:hover': {
+      backgroundColor: ({ btnBackgroundHov }) =>
+        btnBackgroundHov ?? colors.WildStrawberry,
+    },
   },
   link: { textDecoration: 'none' },
   icon: {

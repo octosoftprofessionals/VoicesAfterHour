@@ -41,7 +41,7 @@ const Podcast = ({
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { paddingBottom: theme.spacing(10) },
+  root: { paddingBottom: theme.spacing(20) },
   title: {
     fontFamily: theme.typography.fontFamily[1],
     textDecoration: 'underline',

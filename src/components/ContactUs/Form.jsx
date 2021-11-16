@@ -170,6 +170,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: colors.HotPink,
     boxShadow: shadows.boxShadow4,
     padding: theme.spacing(3.25, 6.5),
+    '&:hover': {
+      backgroundColor: colors.WildStrawberry,
+    },
   },
   btnTxt: {
     fontWeight: weight.l,

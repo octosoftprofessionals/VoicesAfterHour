@@ -42,7 +42,7 @@ const FooterNav = ({ socialMedia }) => {
             Contact Us
           </Typography>
         </Link>
-        <Link to={'/'} className={classes.link}>
+        <Link to={'/termsConditions'} className={classes.link}>
           <Typography variant="body1" color="primary">
             Terms & Conditions
           </Typography>
@@ -57,7 +57,7 @@ const FooterNav = ({ socialMedia }) => {
         direction="column"
         className={classes.containerLink}
       >
-        <Link to={facebook} className={classes.link}>
+        <Link to={facebook ?? '/'} className={classes.link}>
           <Grid
             item
             container
@@ -86,7 +86,7 @@ const FooterNav = ({ socialMedia }) => {
             </Typography>
           </Grid>
         </Link>
-        <Link to={instagram} className={classes.link}>
+        <Link to={instagram ?? '/'} className={classes.link}>
           <Grid
             item
             container

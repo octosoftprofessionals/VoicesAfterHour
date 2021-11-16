@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(48),
     height: theme.spacing(13),
     padding: theme.spacing(2, 6.5),
+    '&:hover': {
+      backgroundColor: ({ backgroundBtnHov }) =>
+        backgroundBtnHov ?? colors.AliceBlueSoft,
+    },
   },
 }))
 

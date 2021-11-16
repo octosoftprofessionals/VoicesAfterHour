@@ -67,7 +67,10 @@ const Home = ({ data }) => {
 const useStyles = makeStyles((theme) => ({
   imgContainer: {
     width: '100%',
-    minHeight: '42vw',
+    minHeight: '25vw',
+    [theme.breakpoints.down('xs')]: {
+      minHeight: '40vw',
+    },
     backgroundSize: 'contain',
   },
 }))

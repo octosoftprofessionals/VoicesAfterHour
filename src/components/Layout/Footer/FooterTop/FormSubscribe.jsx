@@ -5,43 +5,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Send } from '@material-ui/icons'
 
 import { PrimaryInput } from '@Components'
-import { colors, shadows } from '@Styles'
+import { colors } from '@Styles'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    rowGap: theme.spacing(4),
-  },
-  IconSend: {
-    fill: colors.SummerSky,
-  },
-  priInput: {
-    '@global': {
-      '.MuiFilledInput-root': {
-        backgroundColor: 'rgb(73 118 171 / 49%)',
-      },
-      '.MuiFilledInput-adornedEnd': {
-        paddingRight: theme.spacing(1),
-      },
-      '.MuiFilledInput-root:hover': {
-        backgroundColor: colors.LightCyanSoft,
-      },
-      '.MuiInputBase-input': {
-        fontFamily: theme.typography.fontFamily[0],
-        color: colors.Tolopea,
-      },
-      '.MuiFilledInput-root.Mui-focused': {
-        backgroundColor: colors.LightCyanSoft,
-      },
-      '.MuiFilledInput-underline:after': {
-        borderBottom: `2px solid ${colors.HotPink}`,
-      },
-    },
-  },
-}))
 const FormSubscribe = ({ setEmail, email, handleSubmit }) => {
   const classes = useStyles()
   return (
-    <Grid item xs={12} sm={3} container wrap="wrap" className={classes.root}>
+    <Grid item xs={11} sm={3} container wrap="wrap" className={classes.root}>
       <Typography variant="body1" color="primary">
         Subscribe to our newsletter
       </Typography>
@@ -74,5 +43,37 @@ const FormSubscribe = ({ setEmail, email, handleSubmit }) => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    rowGap: theme.spacing(4),
+  },
+  IconSend: {
+    fill: colors.HotPink,
+  },
+  priInput: {
+    '@global': {
+      '.MuiFilledInput-root': {
+        backgroundColor: colors.ShipCoveSoft,
+      },
+      '.MuiFilledInput-adornedEnd': {
+        paddingRight: theme.spacing(1),
+      },
+      '.MuiFilledInput-root:hover': {
+        backgroundColor: colors.ShipCoveSoftHov,
+      },
+      '.MuiInputBase-input': {
+        fontFamily: theme.typography.fontFamily[0],
+        color: colors.Tolopea,
+      },
+      '.MuiFilledInput-root.Mui-focused': {
+        backgroundColor: colors.ShipCoveSoftHov,
+      },
+      '.MuiFilledInput-underline:after': {
+        borderBottom: `2px solid ${colors.HotPink}`,
+      },
+    },
+  },
+}))
 
 export default FormSubscribe

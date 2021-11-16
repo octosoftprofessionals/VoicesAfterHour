@@ -9,8 +9,8 @@ import micIconico from '@Assets/micIconico.png'
 const LandingBanner = ({ description, imageUrl }) => {
   const classes = useStyles({ imageUrl })
   return (
-    <Grid container justify="space-between" className={classes.root}>
-      <Grid item xs={12} md={5} container justify="center">
+    <Grid container justifyContent="space-between" className={classes.root}>
+      <Grid item xs={12} md={5} container justifyContent="center">
         <Hidden mdDown>
           <div className={classes.imageLeft} />
         </Hidden>
