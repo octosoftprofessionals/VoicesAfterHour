@@ -13,7 +13,7 @@ const Sponsors = ({ sponsors }) => {
           SPONSORS
         </Typography>
       </Grid>
-      <Grid container item xs={11} justify="center">
+      <Grid container item xs={11} justifyContent="center">
         {sponsors.map(({ node }) => (
           <SponsorsItem
             key={node.sponsorName}
